@@ -1,3 +1,11 @@
 # git-test
 
-Testing how this works again
+<!-- project title -->
+
+Odin Project Practice
+
+<!-- proejct description -->
+<!-- table of contents -->
+<!-- how to install and run project -->
+<!-- credits -->
+<!-- license -->
