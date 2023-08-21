@@ -1,8 +1,6 @@
-# git-test
-
 <!-- project title -->
 
-Odin Project Practice
+# Odin Project Practice
 
 <!-- proejct description -->
 <!-- table of contents -->
