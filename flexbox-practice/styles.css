@@ -1,0 +1,126 @@
+/* Credit to website for learning flexbox model:
+https://internetingishard.netlify.app/html-and-css/flexbox/index.html
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.menu-container {
+  color: #fff;
+  background-color: #5995da; /* Blue */
+  padding: 20px 0;
+}
+
+.menu {
+  border: 1px solid #fff; /* For debugging */
+  width: 900px;
+}
+
+/* Added later */
+.menu-container {
+  display: flex;
+  justify-content: center;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.links {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.login {
+  margin-left: 20px;
+}
+
+.header-container {
+  color: #5995da;
+  background-color: #d6e9fe;
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  width: 900px;
+  height: 300px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.photo-grid-container {
+  display: flex;
+  justify-content: center;
+}
+
+.photo-grid {
+  width: 900px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  /* changing flex direction from row to column */
+  /* flex-direction: column;
+  align-items: center; */
+
+  /* reverses the grid content only by the row */
+  /* flex-direction: row-reverse;
+  align-items: center; */
+
+  flex-direction: row;
+  align-items: center;
+}
+
+.photo-grid-item {
+  border: 1px solid #fff;
+  width: 300px;
+  height: 300px;
+}
+
+/* changes the order of the flex items within the container */
+.first-item {
+  order: 1;
+}
+
+.last-item {
+  order: -1;
+}
+
+.social,
+.subscribe {
+  align-self: flex-end;
+  margin-bottom: 20px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-item {
+  border: 1px solid #fff;
+  background-color: #d6e9fe;
+  height: 200px;
+  /* flex property changes the how much "space" the item takes up, eg: flex: 2 will take double */
+  flex: 1;
+}
+
+.footer-three {
+  flex: 3;
+}
+
+.footer-one,
+.footer-three {
+  background-color: #5995da;
+  flex: initial;
+  width: 300px;
+}
+
+.signup {
+  margin-left: auto;
+}
