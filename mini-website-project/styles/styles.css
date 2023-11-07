@@ -1,0 +1,64 @@
+* {
+  font-family: "Roboto", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+}
+
+.body {
+  display: flex;
+}
+
+.header,
+.footer {
+  background-color: #1f2937;
+}
+
+/* .main-text {
+  font-size: 48px;
+  font-weight: bolder;
+  color: #f9faf8;
+} */
+
+.logo {
+  font-size: 24px;
+  color: #f9faf8;
+}
+
+.secondary-text {
+  font-size: 18px;
+  color: #e5e7eb;
+}
+
+/* .button {
+  background-color: #3882f6;
+} */
+
+/* .info-text {
+  font-weight: 36px;
+  font-weight: bolder;
+  color: #1f2937;
+} */
+
+/* .quote-background {
+  color: #e5e7eb;
+} */
+
+/* .quote-text {
+  font-size: 36px;
+  font-style: light italic;
+  color: #1f2937;
+} */
+
+.header {
+  display: flex;
+  padding: 1rem 15rem;
+}
+
+.header-links {
+  display: flex;
+  margin-left: auto;
+  gap: 32px;
+}
+
+.footer {
+  text-align: center;
+}
