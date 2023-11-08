@@ -13,9 +13,11 @@
   background-color: #1f2937;
 }
 
+/* FIX the css styling thing for each section */
+
 .main-text {
   font-size: 48px;
-  font-weight: bolder;
+  font-weight: extra-bold;
   color: #f9faf8;
 }
 
@@ -24,32 +26,19 @@
   color: #f9faf8;
 }
 
-.secondary-text {
+.secondary-text,
+.header-links {
   font-size: 18px;
   color: #e5e7eb;
 }
 
-/* .button {
-  background-color: #3882f6;
-} */
-
-.info-text {
+.info-header-text {
   font-weight: 36px;
-  font-weight: 700;
+  font-weight: extra-bold;
   color: #1f2937;
   text-align: center;
   padding: 32px 0;
 }
-
-/* .quote-background {
-  color: #e5e7eb;
-} */
-
-/* .quote-text {
-  font-size: 36px;
-  font-style: light italic;
-  color: #1f2937;
-} */
 
 .header {
   display: flex;
@@ -77,6 +66,18 @@
 .panel-item img {
   max-width: 180px;
   text-align: center;
+}
+
+.quote-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #e5e7eb;
+}
+
+.quote-text {
+  font-size: 36px;
+  font-style: light italic;
+  color: #1f2937;
 }
 
 .footer {
