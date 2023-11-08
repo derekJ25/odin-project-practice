@@ -51,6 +51,32 @@
   gap: 32px;
 }
 
+.introduction {
+  display: flex;
+  padding: 5rem 15rem;
+}
+
+.introduction-info {
+  max-width: 25rem;
+}
+
+.introduction-info h1,
+.introduction-info p {
+  margin-bottom: 1rem;
+}
+
+.image {
+  width: 34rem;
+  height: 15rem;
+}
+
+.signup-button {
+  color: white;
+  background-color: #3882f6;
+  border-radius: 5px;
+  padding: 0.2rem 2rem;
+}
+
 .main-panel {
   background-color: white;
 }
