@@ -111,6 +111,24 @@
   margin-left: auto;
 }
 
+.action-panel {
+  display: flex;
+  margin: 5rem 15rem;
+  padding: 2rem 5rem;
+  background-color: #3382f6;
+  border-radius: 10px;
+}
+
+.action-container {
+  color: white;
+}
+
+.action-panel button {
+  margin-left: auto;
+  align-self: center;
+  border-color: white;
+}
+
 .footer {
   text-align: center;
   padding: 16px 0;
