@@ -1,3 +1,5 @@
+// EXERCISE 1
+
 // console.log(23 + 97);
 
 // const sixValuesAdded = 1 + 2 + 3 + 4 + 5 + 6;
@@ -17,18 +19,37 @@
 // let percentage = actual / MAX;
 // console.log(percentage.toFixed(4));
 
-let user = prompt("Who's there?");
-if (user == null) {
-  console.log("Canceled");
-} else if (user != "Admin") {
-  console.log("I don't know you");
-} else {
-  let password = prompt("Password?");
-  if (password == null) {
-    console.log("Canceled");
-  } else if (password != "TheMaster") {
-    console.log("Wrong password");
-  } else {
-    console.log("Welcome!");
-  }
-}
+// let user = prompt("Who's there?");
+// if (user == null) {
+//   console.log("Canceled");
+// } else if (user != "Admin") {
+//   console.log("I don't know you");
+// } else {
+//   let password = prompt("Password?");
+//   if (password == null) {
+//     console.log("Canceled");
+//   } else if (password != "TheMaster") {
+//     console.log("Wrong password");
+//   } else {
+//     console.log("Welcome!");
+//   }
+// }
+
+// EXERCISE 2
+// const x = 1;
+
+// function a() {
+//   const y = 2;
+//   output(y);
+// }
+
+// function b() {
+//   const z = 3;
+//   output(z);
+// }
+
+// function output(value) {
+//   const para = document.createElement("p");
+//   document.body.appendChild(para);
+//   para.textContent = `Value: ${value}`;
+// }
