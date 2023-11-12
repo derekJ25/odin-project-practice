@@ -5,7 +5,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Functions: Task 2</title>
+    <title>Functions: Task 3</title>
     <style>
       p {
         color: purple;
@@ -15,10 +15,6 @@
       * {
         box-sizing: border-box;
       }
-
-      canvas {
-        border: 1px solid black;
-      }
     </style>
     <!-- fav icon message for console -->
     <link rel="icon" href="data:;base64,iVBORwOKGO=" />
@@ -27,28 +23,36 @@
 
   <body>
     <section class="preview"></section>
-
-    <canvas width="480" height="320"> </canvas>
   </body>
   <script>
-    const canvas = document.querySelector("canvas");
-    const ctx = canvas.getContext("2d");
-
-    const x = 50;
-    const y = 60;
-    const width = 100;
-    const height = 75;
-    const color = "blue";
+    const names = [
+      "Chris",
+      "Li Kang",
+      "Anne",
+      "Francesca",
+      "Mustafa",
+      "Tina",
+      "Bert",
+      "Jada",
+    ];
+    const para = document.createElement("p");
 
     // Add your code here
-    draw(x, y, width, height, color);
-    function draw(x, y, width, height, color) {
-      ctx.fillStyle = color;
-      ctx.fillRect(x, y, width, height);
+
+    function random(min, max) {
+      return Math.floor(Math.random() * (max - min) + min);
     }
+
+    function chooseName(names) {
+      return names[random(0, names.length)];
+    }
+
+    para.innerHTML = chooseName(names);
 
     // Don't edit the code below here!
 
     const section = document.querySelector("section");
+
+    section.appendChild(para);
   </script>
 </html>
