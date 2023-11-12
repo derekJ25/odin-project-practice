@@ -38,8 +38,10 @@
     const para = document.createElement("p");
 
     // Add your code here
-    const random = Math.floor(Math.random() * names.length);
-    para.innerHTML = names[random];
+    function chooseName() {
+      const random = Math.floor(Math.random() * names.length);
+      para.innerHTML = names[random];
+    }
 
     // Don't edit the code below here!
 
