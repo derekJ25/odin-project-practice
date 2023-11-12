@@ -34,11 +34,12 @@
     ];
     const para = document.createElement("p");
 
-    function isShort(name) {
+    /* function isShort(name) {
       return name.length < 5;
-    }
+    } */
 
-    const shortNames = names.filter(isShort);
+    /* const shortNames = names.filter(isShort); */
+    const shortNames = names.filter((names) => names.length < 5);
     para.textContent = shortNames;
 
     // Don't edit the code below here!
