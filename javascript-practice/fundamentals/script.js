@@ -53,3 +53,33 @@
 //   document.body.appendChild(para);
 //   para.textContent = `Value: ${value}`;
 // }
+
+// BASIC PRACTICE FOR FUNCTIONS
+// function displayMessage(message = "Hello!") {
+//   alert(message);
+// }
+
+// // let showAlert = () => {
+// //   alert("Hi!");
+// // };
+
+// let showAlert = () => alert("Hi!");
+
+// const num = 3;
+// let doubleValue = (value) => {
+//   return value * 2;
+// };
+
+// console.log(doubleValue(num));
+
+// ARROW FUNCTION EXERCISE
+// function ask(question, yes, no) {
+//   if (confirm(question)) yes();
+//   else no();
+// }
+
+// ask(
+//   "Do you agree?",
+//   () => alert("You agreed."),
+//   () => alert("You canceled the execution.")
+// );
