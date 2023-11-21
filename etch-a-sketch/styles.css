@@ -1,0 +1,7 @@
+.container {
+  display: flex;
+}
+
+.grid-row {
+  display: grid;
+}
