@@ -28,6 +28,9 @@ const generateGrid = () => {
         }
       });
 
+      // // Figure how to make this into its own seperate function to call
+      // gridCell.addEventListener("mouseenter", flipCell);
+
       gridRow.appendChild(gridCell);
       container.appendChild(gridRow);
     }
