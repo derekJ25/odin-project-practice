@@ -20,25 +20,18 @@ const generateGrid = () => {
         gridCell.style = "border-bottom: 1px solid black";
       }
 
-      // up to this
-      gridCell.addEventListener("mouseleave", flipCell);
+      gridCell.addEventListener("mouseenter", () => {
+        if (gridCell.classList.contains("inverse")) {
+          gridCell.classList.remove("inverse");
+        } else {
+          gridCell.classList.add("inverse");
+        }
+      });
 
       gridRow.appendChild(gridCell);
       container.appendChild(gridRow);
     }
   }
-};
-
-// up to this
-const flipCell = (cell) => {
-  if (cell.className == "grid-item neutral") {
-    console.log("inverse");
-    cell.className = "grid-item inverse";
-  } else {
-    console.log("neutral");
-    cell.className = "grid-item neutral";
-  }
-  console.log("flip cell");
 };
 
 generateGrid();
