@@ -14,19 +14,20 @@ const askUserAmountOfGrid = () => {
   } else {
     const size = gridSize.trim().split(DELIMITER);
     if (size.length == EXPECTED_ROW_COL_VALUES) {
-      // upto: test if two values are both numbers
+      if (isNaN(Number(size[0])) || isNaN(Number(size[1]))) {
+        console.log("Please enter two numbers.");
+      } else {
+        if (size[0] <= 0 || size[0] > 100 || size[1] <= 0 || size[1] > 100) {
+          console.log("Please enter number between 1 and 100.");
+        } else {
+          clearGrid();
+          generateGrid();
+        }
+      }
     } else {
       console.log("Invalid size input. Please try again.");
     }
   }
-
-  // check if empty or null - user cancelled
-  // check if values are greater than 100 or below 0
-  // check if two values are numbers
-  // check if input format is correct
-  // check only containers numbers and a whitespace
-
-  // if values are valid, generate grid
 };
 
 const generateGrid = () => {
