@@ -1,10 +1,12 @@
 const DELIMITER = " ";
 const EXPECTED_ROW_COL_VALUES = 2;
+const RGB_MIN = 0;
+const RGB_MAX = 255;
 
 const container = document.querySelector(".container");
 
 const askUserAmountOfGrid = () => {
-  const gridSize = prompt("Enter column and row size: (x y)", "3 5");
+  const gridSize = prompt("Enter column and row size: (x y)", "5 5");
   if (gridSize == null || gridSize == "") {
     console.log("Cancelled");
   } else {
@@ -59,18 +61,31 @@ const generateGrid = () => {
         gridCell.style = "border-bottom: 1px solid black";
       }
 
+      // // for black and white cells
+      // gridCell.addEventListener("mouseenter", () => {
+      //   if (gridCell.classList.contains("inverse")) {
+      //     gridCell.classList.remove("inverse");
+      //   } else {
+      //     gridCell.classList.add("inverse");
+      //   }
+      // });
+
+      // for random generated colour cells
       gridCell.addEventListener("mouseenter", () => {
-        if (gridCell.classList.contains("inverse")) {
-          gridCell.classList.remove("inverse");
-        } else {
-          gridCell.classList.add("inverse");
-        }
+        const red = generateRandomNumber();
+        const green = generateRandomNumber();
+        const blue = generateRandomNumber();
+        gridCell.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
       });
 
       gridRow.appendChild(gridCell);
       gridContainer.appendChild(gridRow);
     }
   }
+};
+
+const generateRandomNumber = () => {
+  return Math.floor(Math.random() * (RGB_MAX - RGB_MIN + 1)) + RGB_MIN;
 };
 
 const button = document.createElement("button");
