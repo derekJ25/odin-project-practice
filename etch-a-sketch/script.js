@@ -1,7 +1,3 @@
-const GRID_COLUMN = 16;
-const GRID_ROW = 16;
-const LAST_GRID_COLUMN = GRID_COLUMN - 1;
-const LAST_GRID_ROW = GRID_ROW - 1;
 const DELIMITER = " ";
 const EXPECTED_ROW_COL_VALUES = 2;
 
@@ -21,6 +17,7 @@ const askUserAmountOfGrid = () => {
           console.log("Please enter number between 1 and 100.");
         } else {
           clearGrid();
+          updateValues(size[0], size[1]);
           generateGrid();
         }
       }
@@ -30,7 +27,24 @@ const askUserAmountOfGrid = () => {
   }
 };
 
+const updateValues = (col, row) => {
+  GRID_COLUMN = col;
+  GRID_ROW = row;
+  LAST_GRID_COLUMN = GRID_COLUMN - 1;
+  LAST_GRID_ROW = GRID_ROW - 1;
+};
+
+const clearGrid = () => {
+  const gridContainer = document.querySelector(".grid-container");
+  if (gridContainer != null) {
+    container.removeChild(gridContainer);
+  }
+};
+
 const generateGrid = () => {
+  const gridContainer = document.createElement("div");
+  gridContainer.classList.add("grid-container");
+  container.appendChild(gridContainer);
   for (let column = 0; column < GRID_COLUMN; column++) {
     let gridRow = document.createElement("div");
     gridRow.className = "grid-row";
@@ -54,7 +68,7 @@ const generateGrid = () => {
       });
 
       gridRow.appendChild(gridCell);
-      container.appendChild(gridRow);
+      gridContainer.appendChild(gridRow);
     }
   }
 };
@@ -64,5 +78,3 @@ button.textContent = "Click here ";
 button.classList.add("noOfGrid");
 button.addEventListener("click", askUserAmountOfGrid);
 container.appendChild(button);
-
-generateGrid();
