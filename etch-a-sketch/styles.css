@@ -18,7 +18,9 @@
 }
 
 .neutral {
-  background-color: white;
+  /* background-color: white; */
+  background-color: black;
+  opacity: 0;
 }
 
 .inverse {

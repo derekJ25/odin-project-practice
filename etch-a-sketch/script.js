@@ -70,12 +70,17 @@ const generateGrid = () => {
       //   }
       // });
 
-      // for random generated colour cells
+      // // for random generated colour cells
+      // gridCell.addEventListener("mouseenter", () => {
+      //   const red = generateRandomNumber();
+      //   const green = generateRandomNumber();
+      //   const blue = generateRandomNumber();
+      //   gridCell.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+      // });
+
+      // for opacity increase 10% every time enter
       gridCell.addEventListener("mouseenter", () => {
-        const red = generateRandomNumber();
-        const green = generateRandomNumber();
-        const blue = generateRandomNumber();
-        gridCell.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+        gridCell.style.opacity = Number(gridCell.style.opacity) + 0.1;
       });
 
       gridRow.appendChild(gridCell);
