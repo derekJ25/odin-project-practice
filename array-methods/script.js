@@ -141,20 +141,105 @@
 // alert(usersMapped[0].id); // 1
 // alert(usersMapped[0].fullName); // John Smith
 
-// Exercise 8
-const sortByAge = (arr) => {
-  return arr.sort((person1, person2) => person1.age - person2.age);
+// // Exercise 8
+// const sortByAge = (arr) => {
+//   return arr.sort((person1, person2) => person1.age - person2.age);
+// };
+
+// let john = { name: "John", age: 25 };
+// let pete = { name: "Pete", age: 30 };
+// let mary = { name: "Mary", age: 28 };
+
+// let arr = [pete, john, mary];
+
+// sortByAge(arr);
+
+// // now: [john, mary, pete]
+// alert(arr[0].name); // John
+// alert(arr[1].name); // Mary
+// alert(arr[2].name); // Pete
+
+// // Exercise 9
+// const shuffle = (arr) => {
+//   arr.sort(() => Math.random() - 0.5);
+// };
+
+// let arr = [1, 2, 3];
+
+// shuffle(arr);
+// // arr = [3, 2, 1]
+
+// shuffle(arr);
+// // arr = [2, 1, 3]
+
+// shuffle(arr);
+// // arr = [3, 1, 2]
+// // ...
+
+// // Exercise 10
+// const getAverageAge = (arr) => {
+//   return arr.reduce((age, person) => (age += person.age), 0) / arr.length;
+// };
+
+// let john = { name: "John", age: 25 };
+// let pete = { name: "Pete", age: 30 };
+// let mary = { name: "Mary", age: 29 };
+
+// let arr = [john, pete, mary];
+
+// alert(getAverageAge(arr)); // (25 + 30 + 29) / 3 = 28
+
+// // Exercise 11
+// function unique(arr) {
+//   let uniqueArr = [];
+
+//   for (let string of arr) {
+//     if (!uniqueArr.includes(string)) {
+//       uniqueArr.push(string);
+//     }
+//   }
+
+//   return uniqueArr;
+// }
+
+// let strings = [
+//   "Hare",
+//   "Krishna",
+//   "Hare",
+//   "Krishna",
+//   "Krishna",
+//   "Krishna",
+//   "Hare",
+//   "Hare",
+//   ":-O",
+// ];
+
+// // alert(unique(strings)); // Hare, Krishna, :-O
+
+// Exercise 12
+const groupById = (users) => {
+  return users.reduce((obj, user) => {
+    obj[user.id] = user;
+    return obj;
+  }, {});
 };
 
-let john = { name: "John", age: 25 };
-let pete = { name: "Pete", age: 30 };
-let mary = { name: "Mary", age: 28 };
+let users = [
+  { id: "john", name: "John Smith", age: 20 },
+  { id: "ann", name: "Ann Smith", age: 24 },
+  { id: "pete", name: "Pete Peterson", age: 31 },
+];
 
-let arr = [pete, john, mary];
+let usersById = groupById(users);
 
-sortByAge(arr);
+console.table(usersById);
 
-// now: [john, mary, pete]
-alert(arr[0].name); // John
-alert(arr[1].name); // Mary
-alert(arr[2].name); // Pete
+/*
+  // after the call we should have:
+  
+  usersById = {
+    john: {id: 'john', name: "John Smith", age: 20},
+    ann: {id: 'ann', name: "Ann Smith", age: 24},
+    pete: {id: 'pete', name: "Pete Peterson", age: 31},
+  }
+  */
