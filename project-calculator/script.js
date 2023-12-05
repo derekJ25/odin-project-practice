@@ -6,7 +6,7 @@ let value2 = null;
 let operator1 = null;
 let operator2 = null;
 const buttons = document.querySelectorAll("button");
-let displayValue = document.querySelector("span");
+let displayValue = document.querySelector(".display");
 
 // const add = (a, b) => {
 //   return a + b;

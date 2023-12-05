@@ -2,24 +2,32 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 28px;
+  font-size: 36px;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
 }
+
 .display {
   display: grid;
-  width: 12rem;
+  width: 10.5rem;
   text-align: right;
   border: solid 1px black;
   height: 2rem;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  padding: 1rem;
+  border: white;
+  background-color: darkgray;
 }
 
 .container {
   display: grid;
   grid-template-columns: 50px 50px 50px 50px;
   grid-template-rows: 50px 50px 50px 50px 50px;
-  padding-top: 0.5rem;
 }
-.container button {
+.container button,
+.display {
   color: white;
 }
 
