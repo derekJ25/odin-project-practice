@@ -1,15 +1,27 @@
-h2 {
-  text-align: center;
-}
-
-.container {
+body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 28px;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+.display {
+  display: grid;
+  width: 14rem;
+  text-align: right;
+  border: solid 1px black;
+  height: 2rem;
 }
 
-.container span {
-  border: solid 1px black;
-  width: 90px;
-  height: 1rem;
+.container {
+  display: grid;
+  grid-template-columns: 50px 50px 50px 50px;
+  grid-template-rows: 50px 50px 50px 50px 50px;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.zero {
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
