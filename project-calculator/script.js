@@ -8,38 +8,58 @@ let operator2 = null;
 const buttons = document.querySelectorAll("button");
 let displayValue = document.querySelector(".display");
 
-// const add = (a, b) => {
-//   return a + b;
-// };
+const clear = () => {
+  total = 0;
+  value1 = null;
+  value2 = null;
+  operator1 = null;
+  operator2 = null;
+  updateDisplay();
+};
 
-// const subtract = (a, b) => {
-//   return a - b;
-// };
+const updateDisplay = () => {
+  displayValue.innerHTML = total;
+};
 
-// const multiply = (a, b) => {
-//   return a * b;
-// };
+// button eventlistener here
 
-// const divide = (a, b) => {
-//   return a / b;
-// };
+const operate = (operator, a, b) => {
+  if (!operators.includes(operator)) {
+    console.log("operator not found");
+  } else {
+    const operatorIndex = operators.indexOf(operator);
+    if (operatorIndex == 0) {
+      total = add(a, b);
+      return add(a, b);
+    } else if (operatorIndex == 1) {
+      total = subtract(a, b);
+      return subtract(a, b);
+    } else if (operatorIndex == 2) {
+      total = multiply(a, b);
+      return multiply(a, b);
+    } else {
+      total = divide(a, b);
+      return divide(a, b);
+    }
+    // updateDisplay();
+  }
+};
 
-// const operate = (operator, a, b) => {
-//   if (!operators.includes(operator)) {
-//     console.log("operator not found");
-//   } else {
-//     const operatorIndex = operators.indexOf(operator);
-//     if (operatorIndex == 0) {
-//       return add(a, b);
-//     } else if (operatorIndex == 1) {
-//       return subtract(a, b);
-//     } else if (operatorIndex == 2) {
-//       return multiply(a, b);
-//     } else {
-//       return divide(a, b);
-//     }
-//   }
-// };
+const add = (a, b) => {
+  return a + b;
+};
+
+const subtract = (a, b) => {
+  return a - b;
+};
+
+const multiply = (a, b) => {
+  return a * b;
+};
+
+const divide = (a, b) => {
+  return a / b;
+};
 
 // const updateDisplay = () => {
 //   buttons.forEach((button) => {
