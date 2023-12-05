@@ -7,7 +7,7 @@ body {
 }
 .display {
   display: grid;
-  width: 14rem;
+  width: 12rem;
   text-align: right;
   border: solid 1px black;
   height: 2rem;
@@ -17,11 +17,25 @@ body {
   display: grid;
   grid-template-columns: 50px 50px 50px 50px;
   grid-template-rows: 50px 50px 50px 50px 50px;
-  gap: 0.5rem;
   padding-top: 0.5rem;
+}
+.container button {
+  color: white;
 }
 
 .zero {
   grid-column-start: 1;
   grid-column-end: 3;
+}
+
+.options {
+  background-color: darkgray;
+}
+
+.operators {
+  background-color: orange;
+}
+
+.operands {
+  background-color: gray;
 }
