@@ -8,6 +8,32 @@ let operator2 = null;
 const buttons = document.querySelectorAll("button");
 let displayValue = document.querySelector(".display");
 
+// add event listener here
+// note: fiigure the storing and update numbers iwth operators
+buttons.forEach((button) => {
+  button.addEventListener("click", (button) => {
+    const buttonClassName = button.target.classList;
+    const buttonValue = button.target.value;
+    if (buttonClassName.contains("operands")) {
+      console.log(buttonValue);
+      if (displayValue.innerHTML == "0") {
+        displayValue.innerHTML = buttonValue;
+      } else {
+        displayValue.innerHTML += buttonValue;
+      }
+    } else if (buttonClassName.contains("operators")) {
+      console.log("operator");
+    } else {
+      console.log("else");
+      if (buttonValue == "clear") {
+        clear();
+      } else {
+        // insert the other operations
+      }
+    }
+  });
+});
+
 const clear = () => {
   total = 0;
   value1 = null;
@@ -20,8 +46,6 @@ const clear = () => {
 const updateDisplay = () => {
   displayValue.innerHTML = total;
 };
-
-// button eventlistener here
 
 const operate = (operator, a, b) => {
   if (!operators.includes(operator)) {
