@@ -27,25 +27,24 @@ buttons.forEach((button) => {
         displayValue.innerHTML += buttonValue;
       }
     } else if (buttonClassName.contains("operators")) {
-      if (buttonValue != "total" && operator1 == null) {
+      //
+      if (buttonValue != "total") {
         operator1 = buttonValue;
-      } else if (buttonValue != "total" && operator1 != null) {
-        operator2 = buttonValue;
       }
-      // console.log(`operator1: ${operator1}`);
-      // console.log(`operator2: ${operator2}`);
+
+      // console.log(
+      //   `value1: ${value1} | value2: ${value2} | operator1: ${operator1} | operator2: ${operator2}`
+      // );
 
       let currentValue = displayValue.innerHTML;
-      if (value1 != null && value2 == null) {
+      if (value1 == null && value2 == null) {
+        value1 = currentValue;
+      } else if (value1 != null && value2 == null) {
         value2 = currentValue;
       } else if (value1 != null && value2 != null) {
         value1 = total;
-      } else {
-        value1 = currentValue;
+        value2 = currentValue;
       }
-
-      // console.log(`value1: ${value1}`);
-      // console.log(`value2: ${value2}`);
 
       if (buttonValue == "total" && value1 != null && value2 != null) {
         total = operate(operator1, +value1, +value2);
