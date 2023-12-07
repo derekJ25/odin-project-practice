@@ -51,8 +51,6 @@ buttons.forEach((button) => {
         total = operate(operator1, +value1, +value2);
         displayValue.innerHTML = total;
       }
-
-      // add total + value1
     } else {
       console.log("other operations");
       if (buttonValue == "clear") {
@@ -68,7 +66,8 @@ const clear = () => {
   total = 0;
   value1 = null;
   value2 = null;
-  operator = null;
+  operator1 = null;
+  operator2 = null;
   updateDisplay();
 };
 
@@ -94,7 +93,6 @@ const operate = (operator, a, b) => {
       total = divide(a, b);
       return divide(a, b);
     }
-    // updateDisplay();
   }
 };
 
@@ -114,101 +112,53 @@ const divide = (a, b) => {
   return a / b;
 };
 
-// const updateDisplay = () => {
-//   buttons.forEach((button) => {
-//     button.addEventListener("click", () => {
-//       if (button.id == "clear") {
-//         displayValue.innerHTML = "";
-//       } else if (button.id == "total") {
-//         getDisplayEquation();
-//       } else {
-//         displayValue.innerHTML += button.innerHTML;
-//       }
-//     });
-//   });
-// };
+// console.log("TEST CASES");
+// const a = 9;
+// const b = 3;
+// const c = 4.8;
+// const d = 2.1;
+// const zero = 0;
 
-//   buttons.forEach((button) => {
-//     button.addEventListener("click", () => {
-//       if (button.id == "clear") {
-//         displayValue.innerHTML = "";
-//       } else if (button.id == "total") {
-//         getDisplayEquation();
-//       } else {
-//         displayValue.innerHTML += button.innerHTML;
-//       }
-//     });
-//   });
+// const testCasesAddition = [
+//   { name: `addition = (${a}+${b})`, result: operate("+", a, b) },
+//   { name: `addition = (-${a}+${b})`, result: operate("+", -a, b) },
+//   { name: `addition = (${a}+-${b})`, result: operate("+", a, -b) },
+//   { name: `addition = (-${a}+-${b})`, result: operate("+", -a, -b) },
+//   { name: `addition = (${a}++${b})`, result: operate("+", a, b) },
+//   { name: `addition = (${c}+${d})`, result: operate("+", c, d) },
+//   { name: `addition = (${c}+++${d})`, result: operate("++", c, d) },
+//   { name: `addition = (+${a}+${b})`, result: operate("+", a, b) },
+// ];
 
-// const getDisplayEquation = () => {
-//   let displayEquation = displayValue.innerHTML;
-//   let equationOperator;
-//   let foundOperator = false;
+// const testCasesSubtraction = [
+//   { name: `subtraction = (${a}-${b})`, result: operate("-", a, b) },
+//   { name: `subtraction = (-${a}-${b})`, result: operate("-", -a, b) },
+//   { name: `subtraction = (${a}--${b})`, result: operate("-", a, -b) },
+//   { name: `subtraction = (-${a}--${b})`, result: operate("-", -a, -b) },
+//   { name: `subtraction = (${c}-${d})`, result: operate("-", c, d) },
+//   { name: `subtraction = (${a}---${b})`, result: operate("--", a, -b) },
+// ];
 
-//   for (let i = 0; i < operators.length; i++) {
-//     if (displayEquation.includes(operators[i])) {
-//       equationOperator = operators[i];
-//       foundOperator = true;
-//     }
-//   }
+// const testCasesMultiply = [
+//   { name: `multiply = (${zero}*${b})`, result: operate("*", zero, b) },
+//   { name: `multiply = (${a}*${b})`, result: operate("*", a, b) },
+//   { name: `multiply = (-${a}*${b})`, result: operate("*", -a, b) },
+//   { name: `multiply = (${a}*-${b})`, result: operate("*", a, -b) },
+//   { name: `multiply = (-${a}*-${b})`, result: operate("*", -a, -b) },
+//   { name: `multiply = (${a}**${b})`, result: operate("**", a, b) },
+//   { name: `multiply = (${c}*${d})`, result: operate("*", c, d) },
+// ];
 
-//   if (foundOperator) {
-//     const equation = displayEquation.split(equationOperator);
-//     displayValue.innerHTML = operate(
-//       equationOperator,
-//       +equation[0],
-//       +equation[1]
-//     );
-//   }
-// };
-
-console.log("TEST CASES");
-const a = 9;
-const b = 3;
-const c = 4.8;
-const d = 2.1;
-const zero = 0;
-
-const testCasesAddition = [
-  { name: `addition = (${a}+${b})`, result: operate("+", a, b) },
-  { name: `addition = (-${a}+${b})`, result: operate("+", -a, b) },
-  { name: `addition = (${a}+-${b})`, result: operate("+", a, -b) },
-  { name: `addition = (-${a}+-${b})`, result: operate("+", -a, -b) },
-  { name: `addition = (${a}++${b})`, result: operate("+", a, b) },
-  { name: `addition = (${c}+${d})`, result: operate("+", c, d) },
-  { name: `addition = (${c}+++${d})`, result: operate("++", c, d) },
-  { name: `addition = (+${a}+${b})`, result: operate("+", a, b) },
-];
-
-const testCasesSubtraction = [
-  { name: `subtraction = (${a}-${b})`, result: operate("-", a, b) },
-  { name: `subtraction = (-${a}-${b})`, result: operate("-", -a, b) },
-  { name: `subtraction = (${a}--${b})`, result: operate("-", a, -b) },
-  { name: `subtraction = (-${a}--${b})`, result: operate("-", -a, -b) },
-  { name: `subtraction = (${c}-${d})`, result: operate("-", c, d) },
-  { name: `subtraction = (${a}---${b})`, result: operate("--", a, -b) },
-];
-
-const testCasesMultiply = [
-  { name: `multiply = (${zero}*${b})`, result: operate("*", zero, b) },
-  { name: `multiply = (${a}*${b})`, result: operate("*", a, b) },
-  { name: `multiply = (-${a}*${b})`, result: operate("*", -a, b) },
-  { name: `multiply = (${a}*-${b})`, result: operate("*", a, -b) },
-  { name: `multiply = (-${a}*-${b})`, result: operate("*", -a, -b) },
-  { name: `multiply = (${a}**${b})`, result: operate("**", a, b) },
-  { name: `multiply = (${c}*${d})`, result: operate("*", c, d) },
-];
-
-const testCasesDivide = [
-  { name: `divide = (${a}/${b})`, result: operate("/", a, b) },
-  { name: `divide = (-${a}/${b})`, result: operate("/", -a, b) },
-  { name: `divide = (${a}/-${b})`, result: operate("/", a, -b) },
-  { name: `divide = (${zero}/${b})`, result: operate("/", zero, b) },
-  { name: `divide = (${a}/${zero})`, result: operate("/", a, zero) },
-  { name: `divide = (-${a}/-${b})`, result: operate("/", -a, -b) },
-  { name: `divide = (${a}//${b})`, result: operate("//", a, b) },
-  { name: `divide = (${c}/${d})`, result: operate("/", c, d) },
-];
+// const testCasesDivide = [
+//   { name: `divide = (${a}/${b})`, result: operate("/", a, b) },
+//   { name: `divide = (-${a}/${b})`, result: operate("/", -a, b) },
+//   { name: `divide = (${a}/-${b})`, result: operate("/", a, -b) },
+//   { name: `divide = (${zero}/${b})`, result: operate("/", zero, b) },
+//   { name: `divide = (${a}/${zero})`, result: operate("/", a, zero) },
+//   { name: `divide = (-${a}/-${b})`, result: operate("/", -a, -b) },
+//   { name: `divide = (${a}//${b})`, result: operate("//", a, b) },
+//   { name: `divide = (${c}/${d})`, result: operate("/", c, d) },
+// ];
 
 // console.table(testCasesAddition);
 // console.table(testCasesSubtraction);
