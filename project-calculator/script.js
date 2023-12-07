@@ -14,17 +14,47 @@ buttons.forEach((button) => {
   button.addEventListener("click", (button) => {
     const buttonClassName = button.target.classList;
     const buttonValue = button.target.value;
+
     if (buttonClassName.contains("operands")) {
-      console.log(buttonValue);
-      if (displayValue.innerHTML == "0") {
+      if (
+        displayValue.innerHTML == "0" ||
+        displayValue.innerHTML == value1 ||
+        displayValue == value2 ||
+        displayValue == total
+      ) {
         displayValue.innerHTML = buttonValue;
       } else {
         displayValue.innerHTML += buttonValue;
       }
     } else if (buttonClassName.contains("operators")) {
-      console.log("operator");
+      if (buttonValue != "total" && operator1 == null) {
+        operator1 = buttonValue;
+      } else if (buttonValue != "total" && operator1 != null) {
+        operator2 = buttonValue;
+      }
+      // console.log(`operator1: ${operator1}`);
+      // console.log(`operator2: ${operator2}`);
+
+      let currentValue = displayValue.innerHTML;
+      if (value1 != null && value2 == null) {
+        value2 = currentValue;
+      } else if (value1 != null && value2 != null) {
+        value1 = total;
+      } else {
+        value1 = currentValue;
+      }
+
+      // console.log(`value1: ${value1}`);
+      // console.log(`value2: ${value2}`);
+
+      if (buttonValue == "total" && value1 != null && value2 != null) {
+        total = operate(operator1, +value1, +value2);
+        displayValue.innerHTML = total;
+      }
+
+      // add total + value1
     } else {
-      console.log("else");
+      console.log("other operations");
       if (buttonValue == "clear") {
         clear();
       } else {
@@ -38,8 +68,7 @@ const clear = () => {
   total = 0;
   value1 = null;
   value2 = null;
-  operator1 = null;
-  operator2 = null;
+  operator = null;
   updateDisplay();
 };
 
@@ -181,10 +210,10 @@ const testCasesDivide = [
   { name: `divide = (${c}/${d})`, result: operate("/", c, d) },
 ];
 
-console.table(testCasesAddition);
-console.table(testCasesSubtraction);
-console.table(testCasesMultiply);
-console.table(testCasesDivide);
+// console.table(testCasesAddition);
+// console.table(testCasesSubtraction);
+// console.table(testCasesMultiply);
+// console.table(testCasesDivide);
 
 // Complex test cases
 // 1 + 2 - 3
