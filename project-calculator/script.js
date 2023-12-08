@@ -1,4 +1,4 @@
-const operators = ["+", "-", "*", "/"];
+const operators = ["+", "-", "*", "/", "%"];
 
 let total = 0;
 let value1 = null;
@@ -7,6 +7,7 @@ let operator1 = null;
 let operator2 = null;
 const buttons = document.querySelectorAll("button");
 let displayValue = document.querySelector(".display");
+let isDecimal = false;
 
 // add event listener here
 // note: fiigure the storing and update numbers iwth operators
@@ -22,9 +23,20 @@ buttons.forEach((button) => {
         displayValue == value2 ||
         displayValue == total
       ) {
-        displayValue.innerHTML = buttonValue;
+        if (displayValue.innerHTML == "0" && buttonValue == ".") {
+          displayValue.innerHTML = "0.";
+        } else {
+          displayValue.innerHTML = buttonValue;
+        }
       } else {
-        displayValue.innerHTML += buttonValue;
+        if (!displayValue.innerHTML.includes(".") && buttonValue == ".") {
+          isDecimal = true;
+          displayValue.innerHTML += buttonValue;
+        } else {
+          if (buttonValue != ".") {
+            displayValue.innerHTML += buttonValue;
+          }
+        }
       }
     } else if (buttonClassName.contains("operators")) {
       //
@@ -47,15 +59,16 @@ buttons.forEach((button) => {
       }
 
       if (buttonValue == "total" && value1 != null && value2 != null) {
-        total = operate(operator1, +value1, +value2);
-        displayValue.innerHTML = total;
+        operate(operator1, +value1, +value2);
+        updateDisplay();
       }
     } else {
       console.log("other operations");
       if (buttonValue == "clear") {
         clear();
       } else {
-        // insert the other operations
+        // add negative
+        updateNegative(buttonValue);
       }
     }
   });
@@ -74,6 +87,8 @@ const updateDisplay = () => {
   displayValue.innerHTML = total;
 };
 
+const updateNegative = (buttonValue) => {};
+
 const operate = (operator, a, b) => {
   if (!operators.includes(operator)) {
     console.log("operator not found");
@@ -88,9 +103,12 @@ const operate = (operator, a, b) => {
     } else if (operatorIndex == 2) {
       total = multiply(a, b);
       return multiply(a, b);
-    } else {
+    } else if (operatorIndex == 3) {
       total = divide(a, b);
       return divide(a, b);
+    } else {
+      total = modulus(a, b);
+      return modulus(a, b);
     }
   }
 };
@@ -109,6 +127,10 @@ const multiply = (a, b) => {
 
 const divide = (a, b) => {
   return a / b;
+};
+
+const modulus = (a, b) => {
+  return a % b;
 };
 
 // console.log("TEST CASES");

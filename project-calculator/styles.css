@@ -36,12 +36,12 @@ body {
   grid-column-end: 3;
 }
 
-.options {
-  background-color: darkgray;
-}
-
 .operators {
   background-color: orange;
+}
+
+.options {
+  background-color: darkgray;
 }
 
 .operands {
