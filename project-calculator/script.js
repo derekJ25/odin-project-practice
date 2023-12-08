@@ -7,10 +7,7 @@ let operator1 = null;
 let operator2 = null;
 const buttons = document.querySelectorAll("button");
 let displayValue = document.querySelector(".display");
-let isDecimal = false;
 
-// add event listener here
-// note: fiigure the storing and update numbers iwth operators
 buttons.forEach((button) => {
   button.addEventListener("click", (button) => {
     const buttonClassName = button.target.classList;
@@ -30,7 +27,6 @@ buttons.forEach((button) => {
         }
       } else {
         if (!displayValue.innerHTML.includes(".") && buttonValue == ".") {
-          isDecimal = true;
           displayValue.innerHTML += buttonValue;
         } else {
           if (buttonValue != ".") {
@@ -39,16 +35,11 @@ buttons.forEach((button) => {
         }
       }
     } else if (buttonClassName.contains("operators")) {
-      //
+      let currentValue = displayValue.innerHTML;
       if (buttonValue != "total") {
         operator1 = buttonValue;
       }
 
-      // console.log(
-      //   `value1: ${value1} | value2: ${value2} | operator1: ${operator1} | operator2: ${operator2}`
-      // );
-
-      let currentValue = displayValue.innerHTML;
       if (value1 == null && value2 == null) {
         value1 = currentValue;
       } else if (value1 != null && value2 == null) {
@@ -144,61 +135,3 @@ const divide = (a, b) => {
 const modulus = (a, b) => {
   return a % b;
 };
-
-// console.log("TEST CASES");
-// const a = 9;
-// const b = 3;
-// const c = 4.8;
-// const d = 2.1;
-// const zero = 0;
-
-// const testCasesAddition = [
-//   { name: `addition = (${a}+${b})`, result: operate("+", a, b) },
-//   { name: `addition = (-${a}+${b})`, result: operate("+", -a, b) },
-//   { name: `addition = (${a}+-${b})`, result: operate("+", a, -b) },
-//   { name: `addition = (-${a}+-${b})`, result: operate("+", -a, -b) },
-//   { name: `addition = (${a}++${b})`, result: operate("+", a, b) },
-//   { name: `addition = (${c}+${d})`, result: operate("+", c, d) },
-//   { name: `addition = (${c}+++${d})`, result: operate("++", c, d) },
-//   { name: `addition = (+${a}+${b})`, result: operate("+", a, b) },
-// ];
-
-// const testCasesSubtraction = [
-//   { name: `subtraction = (${a}-${b})`, result: operate("-", a, b) },
-//   { name: `subtraction = (-${a}-${b})`, result: operate("-", -a, b) },
-//   { name: `subtraction = (${a}--${b})`, result: operate("-", a, -b) },
-//   { name: `subtraction = (-${a}--${b})`, result: operate("-", -a, -b) },
-//   { name: `subtraction = (${c}-${d})`, result: operate("-", c, d) },
-//   { name: `subtraction = (${a}---${b})`, result: operate("--", a, -b) },
-// ];
-
-// const testCasesMultiply = [
-//   { name: `multiply = (${zero}*${b})`, result: operate("*", zero, b) },
-//   { name: `multiply = (${a}*${b})`, result: operate("*", a, b) },
-//   { name: `multiply = (-${a}*${b})`, result: operate("*", -a, b) },
-//   { name: `multiply = (${a}*-${b})`, result: operate("*", a, -b) },
-//   { name: `multiply = (-${a}*-${b})`, result: operate("*", -a, -b) },
-//   { name: `multiply = (${a}**${b})`, result: operate("**", a, b) },
-//   { name: `multiply = (${c}*${d})`, result: operate("*", c, d) },
-// ];
-
-// const testCasesDivide = [
-//   { name: `divide = (${a}/${b})`, result: operate("/", a, b) },
-//   { name: `divide = (-${a}/${b})`, result: operate("/", -a, b) },
-//   { name: `divide = (${a}/-${b})`, result: operate("/", a, -b) },
-//   { name: `divide = (${zero}/${b})`, result: operate("/", zero, b) },
-//   { name: `divide = (${a}/${zero})`, result: operate("/", a, zero) },
-//   { name: `divide = (-${a}/-${b})`, result: operate("/", -a, -b) },
-//   { name: `divide = (${a}//${b})`, result: operate("//", a, b) },
-//   { name: `divide = (${c}/${d})`, result: operate("/", c, d) },
-// ];
-
-// console.table(testCasesAddition);
-// console.table(testCasesSubtraction);
-// console.table(testCasesMultiply);
-// console.table(testCasesDivide);
-
-// Complex test cases
-// 1 + 2 - 3
-// 1 + 2 * 3
-// 1 + 0 * 3
