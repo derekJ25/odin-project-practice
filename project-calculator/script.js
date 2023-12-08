@@ -63,12 +63,11 @@ buttons.forEach((button) => {
         updateDisplay();
       }
     } else {
-      console.log("other operations");
       if (buttonValue == "clear") {
         clear();
       } else {
-        // add negative
-        updateNegative(buttonValue);
+        // negative bug when clicked -0 and click number gives -05 etc
+        updateNegative();
       }
     }
   });
@@ -87,7 +86,18 @@ const updateDisplay = () => {
   displayValue.innerHTML = total;
 };
 
-const updateNegative = (buttonValue) => {};
+const updateNegative = () => {
+  console.log(displayValue.innerHTML);
+  if (displayValue.innerHTML.includes("-")) {
+    // displayValue.innerHTML.slice(1);
+    console.log("remove -");
+    total = displayValue.innerHTML.slice(1);
+  } else {
+    console.log("add -");
+    total = `-${displayValue.innerHTML}`;
+  }
+  updateDisplay();
+};
 
 const operate = (operator, a, b) => {
   if (!operators.includes(operator)) {
