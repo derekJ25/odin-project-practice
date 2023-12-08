@@ -82,18 +82,20 @@ const clear = () => {
   updateDisplay();
 };
 
+const roundValue = () => {
+  total = Math.round(total * 10000) / 10000;
+};
+
 const updateDisplay = () => {
+  roundValue();
   displayValue.innerHTML = total;
 };
 
 const updateNegative = () => {
   console.log(displayValue.innerHTML);
   if (displayValue.innerHTML.includes("-")) {
-    // displayValue.innerHTML.slice(1);
-    console.log("remove -");
     total = displayValue.innerHTML.slice(1);
   } else {
-    console.log("add -");
     total = `-${displayValue.innerHTML}`;
   }
   updateDisplay();
