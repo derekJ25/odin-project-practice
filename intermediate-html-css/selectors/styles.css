@@ -1,0 +1,83 @@
+/* Exercise 1 */
+/* h1 {
+  color: blue;
+}
+
+h2 {
+  background-color: blue;
+  color: white;
+}
+
+span {
+  font-size: 200%;
+} */
+
+/* Exercise 2 */
+/* #special {
+  background-color: yellow;
+}
+
+.alert {
+  border: 1px solid grey;
+}
+
+.alert.stop {
+  background-color: red;
+}
+
+.alert.go {
+  background-color: green;
+} */
+
+/* Exercise 3 */
+/* .container p:first-child {
+  color: red;
+}
+
+.container p:first-child::first-line {
+  font-size: 150%;
+}
+
+a:link {
+  color: orange;
+}
+
+a:visited {
+  color: green;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+tr:nth-child(even) {
+  background-color: #333;
+  color: #fff;
+} */
+
+/* Exercise 4 */
+/* h2 + p {
+  color: red;
+}
+
+.list > li {
+  list-style-type: none;
+  border-bottom: 1px solid gray;
+} */
+
+/* Exercise 5 */
+a {
+  border: 5px solid grey;
+}
+
+a[title] {
+  border-color: pink;
+}
+
+a[href*="contact"] {
+  border-color: orange;
+}
+
+a[href^="https"] {
+  border-color: green;
+}
