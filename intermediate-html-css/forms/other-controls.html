@@ -1,0 +1,92 @@
+<!-- 
+    Exercises can be found here:
+    https://developer.mozilla.org/en-US/docs/Learn/Forms/Test_your_skills:_Other_controls
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Other controls</title>
+  </head>
+  <body>
+    <!-- Exercise 1 -->
+    <!-- <form>
+      <h2>Enter your comment</h2>
+      <ul>
+        <li>
+          <label for="name">Name:</label>
+          <input type="text" name="name" id="name" />
+        </li>
+        <li>
+          <label for="comment">Comment:</label>
+          <textarea
+            name="comment"
+            id="comment"
+            cols="35"
+            rows="10"
+            maxlength="10"
+          >
+Enter comment here</textarea
+          >
+        </li>
+        <li>
+          <button>Submit comment</button>
+        </li>
+      </ul>
+    </form> -->
+
+    <!-- Exercise 2 -->
+    <!-- <form>
+      <ul>
+        <li>
+          <label for="food">Pick your favorite food:</label>
+
+          <select name="food" id="food">
+            <optgroup label="Mains">
+              <option value="salad">Salad</option>
+              <option value="curry">Curry</option>
+              <option value="pizza">Pizza</option>
+              <option value="fajitas">Fajitas</option>
+            </optgroup>
+            <optgroup label="Snacks">
+              <option value="biscuits">Biscuits</option>
+              <option value="crisps">Crisps</option>
+              <option value="fruit">Fruit</option>
+              <option value="breadsticks">Breadsticks</option>
+            </optgroup>
+          </select>
+        </li>
+        <li>
+          <button>Submit choice</button>
+        </li>
+      </ul>
+    </form> -->
+
+    <!-- Exercise 3 -->
+    <form>
+      <ul>
+        <li>
+          <label for="food">Enter your favorite food:</label>
+          <input type="text" name="food" id="food" list="foodList" />
+
+          <datalist id="foodList">
+            <option value="salad">Salad</option>
+            <option value="curry">Curry</option>
+            <option value="pizza">Pizza</option>
+            <option value="fajitas">Fajitas</option>
+
+            <option value="biscuits">Biscuits</option>
+            <option value="crisps">Crisps</option>
+            <option value="fruit">Fruit</option>
+            <option value="breadsticks">Breadsticks</option>
+          </datalist>
+        </li>
+        <li>
+          <button>Submit choice</button>
+        </li>
+      </ul>
+    </form>
+  </body>
+</html>
