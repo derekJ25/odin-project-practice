@@ -27,7 +27,7 @@ select {
   padding: 0 5px;
   border: 2px solid black;
   border-radius: 5px;
-  outline: none;
+  outline: none;aq
 }
 
 input[type="search"]:hover,
@@ -45,6 +45,37 @@ form {
 } */
 
 /* Exercise 2 */
+input[type="radio"],
+input[type="radio"]:checked::before {
+  border-radius: 8px;
+}
+
 input[type="radio"] {
   appearance: none;
+  border: 2px solid black;
+  height: 18px;
+  width: 18px;
+  margin: 8px 0;
+}
+
+input[type="radio"]:checked {
+  background-color: 2px solid aqua;
+  position: relative;
+}
+
+input[type="radio"]:checked::before {
+  content: "";
+  background-color: aqua;
+  height: 14px;
+  width: 14px;
+  position: absolute;
+}
+
+li {
+  display: flex;
+}
+
+label {
+  margin: auto;
+  margin-left: 4px;
 }
