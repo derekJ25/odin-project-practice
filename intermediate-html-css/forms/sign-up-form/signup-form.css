@@ -1,3 +1,23 @@
+body {
+  font-family: "Montserrat";
+}
+
 .container {
   display: flex;
+}
+
+.sidebar {
+  /* background-image: url(sixteen-miles-out-3ZvHsFiZyME-unsplash.jpg); */
+}
+
+.logo {
+  display: flex;
+}
+
+.logo > img {
+  width: 200px;
+}
+
+.logo > div {
+  margin: auto;
 }

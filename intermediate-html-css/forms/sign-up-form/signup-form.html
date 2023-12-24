@@ -1,7 +1,6 @@
 <!-- 
     Image taken from unsplash:
     https://unsplash.com/photos/white-notebook-on-white-textile-3ZvHsFiZyME
-    Photo by <a href="https://unsplash.com/@sixteenmilesout?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Sixteen Miles Out</a> on <a href="https://unsplash.com/photos/white-notebook-on-white-textile-3ZvHsFiZyME?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
     
     Google Fonts Montserrate:
     https://fonts.google.com/specimen/Montserrat
@@ -22,13 +21,33 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css-reset.css" />
+    <!-- Meyer CSS reset -->
+    <link rel="stylesheet" href="meyer-css-reset.css" />
+    <!-- External CSS -->
     <link rel="stylesheet" href="signup-form.css" />
     <title>Sign up form</title>
   </head>
   <body>
     <div class="container">
-      <div class="sidebar"></div>
+      <div class="sidebar">
+        <div class="logo">
+          <img src="bird_2.png" alt="logo.png" />
+          <div>LOGO</div>
+        </div>
+        <div class="photo-credit">
+          Photo by
+          <a
+            href="https://unsplash.com/@sixteenmilesout?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+            >Sixteen Miles Out</a
+          >
+          on
+          <a
+            href="https://unsplash.com/photos/white-notebook-on-white-textile-3ZvHsFiZyME?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+            >Unsplash</a
+          >
+        </div>
+      </div>
+
       <div class="sign-up-content"></div>
     </div>
     <script src="signup-form.js"></script>
