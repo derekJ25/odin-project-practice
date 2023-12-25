@@ -1,23 +1,56 @@
 body {
   font-family: "Montserrat";
+  font-size: 16px;
 }
 
 .container {
   display: flex;
 }
 
+.sidebar,
+.signup-content {
+  display: flex;
+  height: 100vh;
+}
+
 .sidebar {
-  /* background-image: url(sixteen-miles-out-3ZvHsFiZyME-unsplash.jpg); */
+  background-image: url(sixteen-miles-out-3ZvHsFiZyME-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 40vw;
+  flex-direction: column;
+  text-align: center;
+}
+
+.signup-content {
+  width: 60vw;
+}
+
+.sidebar > div,
+.sidebar > div > a {
+  color: white;
+}
+
+.photo-credit {
+  margin-top: auto;
+  margin-bottom: 24px;
 }
 
 .logo {
   display: flex;
+  margin: auto;
+  font-weight: bold;
+  background-color: rgba(0, 00, 0, 0.7);
+  width: 100%;
+  justify-content: center;
+  padding: 16px 0;
 }
 
 .logo > img {
-  width: 200px;
+  max-width: 100px;
 }
 
 .logo > div {
-  margin: auto;
+  margin: auto 2rem;
+  font-size: 4rem;
 }
