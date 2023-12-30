@@ -27,6 +27,7 @@ body {
 
 .signup-content {
   width: 60vw;
+  height: 100vh;
 }
 
 .sidebar > div,
@@ -61,7 +62,7 @@ body {
 .signup-content > div:first-child {
   padding-left: 64px;
   padding-right: 160px;
-  padding-top: 128px;
+  padding-top: 64px;
   padding-bottom: 64px;
   font-size: 1.2rem;
 }
@@ -69,7 +70,7 @@ body {
 .signup-content > div > h2 {
   margin-top: 24px;
   margin-bottom: 16px;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .signup-content > div {
@@ -106,6 +107,8 @@ input {
   margin-right: auto;
   padding: 8px;
   width: 30%;
+  border: 2px solid rgba(200, 200, 200, 0.7);
+  border-radius: 8px;
 }
 
 .signup-content > div > button {
@@ -121,4 +124,29 @@ input {
 
 a {
   color: black;
+}
+
+input:focus {
+  outline: none;
+  border: 2px solid dodgerblue;
+  box-shadow: 0 0 0 2px rgba(200, 200, 200, 1);
+}
+
+.error {
+  border: 2px solid red;
+}
+
+.valid {
+  border: 2px solid green;
+}
+
+.password-error-message {
+  margin-top: 8px;
+  font-size: 12px;
+  color: red;
+  /* visibility: hidden; */
+}
+
+.valid-error-message {
+  visibility: hidden;
 }

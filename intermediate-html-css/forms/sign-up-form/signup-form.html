@@ -59,7 +59,7 @@
         </div>
         <div>
           <h2>Let's do this!</h2>
-          <form action="">
+          <form action="" method="post" id="login-form">
             <div>
               <label for="first-name">First Name</label>
               <label for="last-name">Last Name</label>
@@ -70,12 +70,14 @@
                 id="first-name"
                 name="first-name"
                 placeholder="firstname"
+                required
               />
               <input
                 type="text"
                 id="last-name"
                 name="last-name"
                 placeholder="lastname"
+                required
               />
             </div>
             <div>
@@ -88,12 +90,14 @@
                 id="email"
                 name="email"
                 placeholder="email@gmail.com"
+                required
               />
               <input
                 type="tel"
                 id="phone-no"
                 name="phone-no"
                 placeholder="0123 456 789"
+                required
               />
             </div>
             <div>
@@ -106,18 +110,27 @@
                 id="password"
                 name="password"
                 placeholder="password"
+                class="error"
+                required
               />
               <input
                 type="password"
                 id="confirm-password"
                 name="confirm-password"
                 placeholder="confirm password"
+                class="error"
+                required
               />
+            </div>
+            <div>
+              <span class="password-error-message"
+                >* Passwords do not match</span
+              >
             </div>
           </form>
         </div>
         <div>
-          <button type="submit">Create Account</button>
+          <button type="submit" form="login-form">Create Account</button>
           <span>Already have an account? <a href="">Login</a></span>
         </div>
       </div>
