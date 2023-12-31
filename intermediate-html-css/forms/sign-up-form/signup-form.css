@@ -6,6 +6,8 @@ body {
 
 .container {
   display: flex;
+  flex: 1;
+  overflow: auto;
 }
 
 .sidebar,
@@ -14,7 +16,6 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.999);
 }
 
 .sidebar {
@@ -23,6 +24,7 @@ body {
   background-size: cover;
   width: 40vw;
   text-align: center;
+  min-height: 0;
 }
 
 .signup-content {
@@ -37,7 +39,7 @@ body {
 
 .photo-credit {
   margin-top: auto;
-  margin-bottom: 24px;
+  margin-bottom: 2vh;
 }
 
 .logo {
@@ -61,27 +63,27 @@ body {
 }
 
 .signup-content > div:first-child {
-  padding-left: 64px;
-  padding-right: 160px;
-  padding-top: 64px;
-  padding-bottom: 64px;
+  padding-left: 3vw;
+  padding-right: 10vw;
+  padding-top: 5vh;
+  padding-bottom: 3vh;
   font-size: 1.2rem;
 }
 
 .signup-content > div > h2 {
-  margin-top: 24px;
-  margin-bottom: 16px;
+  margin-top: 3vh;
+  margin-bottom: 2vh;
   font-weight: 800;
 }
 
 .signup-content > div {
-  padding: 0 64px;
-  padding-top: 16px;
+  padding: 0 3vw;
+  padding-top: 1vh;
   background-color: rgba(210, 210, 210, 0.3);
   border: 1px solid lightgray;
 }
 .signup-content > div:last-child {
-  padding: 32px 64px;
+  padding: 3vh 3vw;
 }
 
 .signup-content > div:first-child,
@@ -90,7 +92,7 @@ body {
 }
 
 form {
-  margin-bottom: 32px;
+  margin-bottom: 3vh;
 }
 
 form > div {
@@ -99,14 +101,14 @@ form > div {
 
 label {
   width: 50%;
-  margin: 8px 0;
+  margin: 0.7em 0;
   text-transform: uppercase;
   font-size: 14px;
 }
 
 input {
   margin-right: auto;
-  padding: 8px;
+  padding: 0.7em;
   width: 30%;
   border: 2px solid rgba(200, 200, 200, 0.7);
   border-radius: 8px;
@@ -131,7 +133,7 @@ input:focus {
 }
 
 .password-error-message {
-  margin-top: 8px;
+  margin-top: 1em;
   font-size: 12px;
   color: red;
   /* visibility: hidden; */
@@ -143,8 +145,8 @@ input:focus {
 
 button[type="submit"] {
   max-width: 250px;
-  padding: 12px 24px;
-  margin-bottom: 16px;
+  padding: 1vh 2vh;
+  margin-bottom: 2vh;
   font-size: 16px;
   background-color: rgba(210, 210, 210, 0.5);
   color: black;
