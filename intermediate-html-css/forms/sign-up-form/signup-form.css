@@ -42,6 +42,7 @@ body {
 
 .logo {
   display: flex;
+  flex-wrap: wrap;
   margin: auto;
   font-weight: bold;
   background-color: rgba(0, 0, 0, 0.7);
@@ -111,17 +112,6 @@ input {
   border-radius: 8px;
 }
 
-.signup-content > div > button {
-  max-width: 250px;
-  padding: 12px 24px;
-  margin-bottom: 16px;
-  font-size: 16px;
-  background-color: rgba(210, 210, 210, 0.5);
-  color: black;
-  border-radius: 16px;
-  border: 2px solid black;
-}
-
 a {
   color: black;
 }
@@ -149,4 +139,19 @@ input:focus {
 
 .valid-error-message {
   visibility: hidden;
+}
+
+button[type="submit"] {
+  max-width: 250px;
+  padding: 12px 24px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  background-color: rgba(210, 210, 210, 0.5);
+  color: black;
+  border-radius: 16px;
+  border: 2px solid black;
+}
+
+button[type="submit"]:hover {
+  background-color: rgba(210, 210, 210, 1);
 }
