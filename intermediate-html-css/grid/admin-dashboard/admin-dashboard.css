@@ -35,21 +35,29 @@ body {
   align-items: center;
   margin-bottom: 1rem;
 }
-
-.action-item > span {
+.sidebar > div > a {
+  display: flex;
+  list-style-type: none;
+  color: white;
+  text-decoration: none;
+  align-items: center;
   margin-left: 1.5rem;
 }
 
-.logo > span {
+.sidebar > div > a > span {
+  margin-left: 1.5rem;
+}
+
+.sidebar > div > a {
   margin-top: 0.8rem;
 }
 
-.logo > span:first-child {
+.logo > a > span:first-child {
   font-size: 3rem;
   margin-left: 0.8rem;
 }
 
-.logo > span:last-child {
+.logo > a > span:last-child {
   font-size: 1.5rem;
   margin-left: 0.6rem;
   font-weight: bolder;
