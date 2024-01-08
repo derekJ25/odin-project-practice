@@ -11,15 +11,11 @@ body {
 .container {
   display: grid;
   grid-template: 1fr 5fr / 1fr 4fr;
-}
-
-.sidebar {
-  height: 100vh;
+  max-height: 100vh;
 }
 
 .sidebar {
   grid-area: 1/1/6/1;
-  border: 1px solid black;
   background-color: rgb(75, 180, 220);
   color: white;
 }
@@ -71,7 +67,7 @@ body {
 
 .header {
   grid-area: 1/2/1/5;
-  border: 1px solid pink;
+  border-bottom: 1px solid rgb(100, 100, 100);
 }
 
 .top-header,
@@ -88,8 +84,8 @@ body {
 }
 
 .profile-picture {
-  height: 4rem;
-  width: 4rem;
+  height: 3rem;
+  width: 3rem;
   border-radius: 50%;
   margin-left: 2rem;
 }
@@ -110,18 +106,43 @@ input[type="text"] {
   margin-left: 1rem;
 }
 
-.bottom-header > img {
+.bottom-header {
   margin-bottom: 1rem;
-  height: 75px;
-  width: 75px;
+}
+
+.bottom-header > img {
+  height: 4rem;
+  width: 4rem;
 }
 
 .bottom-header > div {
+  margin-top: 0;
   align-items: flex-start;
   flex-direction: column;
+  margin-right: auto;
+}
+
+.bottom-header > div > span {
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+}
+
+.bottom-header > div > span:last-of-type {
+  font-size: 1.2rem;
+}
+
+.bottom-header > button {
+  background-color: rgba(30, 150, 200, 0.6);
+  border: 2px solid rgba(30, 150, 200, 1);
+  color: white;
+  border-radius: 16px;
+  padding: 0.5rem 2rem;
+  margin-right: 3rem;
 }
 
 .content {
-  grid-area: 2/2/6/5;
-  border: 1px solid purple;
+  grid-area: 2/2/5/5;
+  box-shadow: inset 0 2px 4px rgb(100, 100, 100);
+  background-color: rgb(200, 200, 200);
 }
