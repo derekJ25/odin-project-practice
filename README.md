@@ -1,3 +1,3 @@
 # odin-project-practice
 
-My attempt at The Odin Project exercises for my own personal development
+My attempt at The Odin Project for my own personal development and learning
