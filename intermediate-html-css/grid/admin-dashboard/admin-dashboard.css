@@ -1,3 +1,5 @@
+/* NOTE: Need to fix layout when at smaller resolution */
+
 body {
   font-family: "Montserrat";
   font-size: 16px;
@@ -11,7 +13,6 @@ body {
 .container {
   display: grid;
   grid-template: 1fr 5fr / 1fr 4fr;
-  max-height: 100vh;
 }
 
 .sidebar {
@@ -142,7 +143,65 @@ input[type="text"] {
 }
 
 .content {
+  display: flex;
   grid-area: 2/2/5/5;
   box-shadow: inset 0 2px 4px rgb(100, 100, 100);
   background-color: rgb(200, 200, 200);
+}
+
+.content-main {
+  max-width: 70%;
+  width: 70%;
+}
+
+.content-main > h2,
+.content-right > div > h2 {
+  margin-top: 2rem;
+  margin-left: 1rem;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+.project-card {
+  max-width: max(20vw, (100% / 2) - 2.63rem);
+  border: 1px solid red;
+  background-color: white;
+  padding: 1rem;
+}
+
+.project-card > h2,
+.project-card > p,
+.project-button {
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.project-card > h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.project-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.project-button > a {
+  text-decoration: none;
+  color: rgb(100, 100, 100);
+  margin-left: 1rem;
+}
+
+.content-right {
+  max-width: 30%;
+  width: 30%;
+}
+
+.title {
+  font-size: 1.4rem;
 }
