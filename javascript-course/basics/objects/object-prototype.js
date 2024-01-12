@@ -74,3 +74,11 @@ playerO.sayName(); // Hello, I'm also steve!
 
 playerX.getMarker(); // My marker is 'X'
 playerO.getMarker(); // My marker is 'O'
+
+// Testing knowledge
+function User(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+const user1 = new User("fred", "5");
