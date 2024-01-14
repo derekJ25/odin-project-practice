@@ -1,0 +1,17 @@
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form > fieldset {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+}
+
+fieldset > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

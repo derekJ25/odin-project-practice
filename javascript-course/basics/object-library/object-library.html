@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="object-library.css" />
+    <title>Object library</title>
+  </head>
+  <body>
+    <form action="">
+      <fieldset>
+        <legend>Add book to library</legend>
+        <label for="author">Author</label>
+        <input type="text" id="author" name="author" required />
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" required />
+        <label for="noOfPages">Number of pages</label>
+        <input
+          type="number"
+          id="noOfPages"
+          name="noOfPages"
+          min="1"
+          max="999"
+          required
+        />
+        <label for="isRead">Has this book been read?</label>
+        <div>
+          <input type="radio" id="true" name="isRead" value="true" checked />
+          <label for="yes">Yes</label>
+          <input type="radio" id="false" name="isRead" value="false" />
+          <label for="no">No</label>
+        </div>
+      </fieldset>
+    </form>
+
+    <div class="library-books">
+      <thead>
+        <tr>
+          <h2>Books in library</h2>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </div>
+
+    <script src="object-library.js"></script>
+  </body>
+</html>
