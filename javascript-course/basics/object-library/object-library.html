@@ -7,7 +7,7 @@
     <title>Object library</title>
   </head>
   <body>
-    <form action="">
+    <form action="" id="bookForm">
       <fieldset>
         <legend>Add book to library</legend>
         <label for="author">Author</label>
@@ -30,16 +30,23 @@
           <input type="radio" id="false" name="isRead" value="false" />
           <label for="no">No</label>
         </div>
+        <button type="submit">Add book</button>
       </fieldset>
     </form>
 
     <div class="library-books">
-      <thead>
-        <tr>
-          <h2>Books in library</h2>
-        </tr>
-      </thead>
-      <tbody></tbody>
+      <h2>Books in library</h2>
+      <table class="book-table">
+        <thead>
+          <tr>
+            <th>Author</th>
+            <th>Title</th>
+            <th>No. of pages</th>
+            <th>Has book been read?</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
     </div>
 
     <script src="object-library.js"></script>
