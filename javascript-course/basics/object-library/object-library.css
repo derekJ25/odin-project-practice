@@ -12,6 +12,8 @@ form > fieldset {
 
 fieldset > div {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
 }
+
+/* Add error checking and display to form */

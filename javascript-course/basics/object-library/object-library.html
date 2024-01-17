@@ -7,29 +7,49 @@
     <title>Object library</title>
   </head>
   <body>
-    <form action="" id="bookForm">
+    <form id="bookForm" onsubmit="event.preventDefault(); addBookToLibrary();">
       <fieldset>
         <legend>Add book to library</legend>
-        <label for="author">Author</label>
-        <input type="text" id="author" name="author" required />
-        <label for="title">Title</label>
-        <input type="text" id="title" name="title" required />
-        <label for="noOfPages">Number of pages</label>
-        <input
-          type="number"
-          id="noOfPages"
-          name="noOfPages"
-          min="1"
-          max="999"
-          required
-        />
-        <label for="isRead">Has this book been read?</label>
-        <div>
-          <input type="radio" id="true" name="isRead" value="true" checked />
-          <label for="yes">Yes</label>
-          <input type="radio" id="false" name="isRead" value="false" />
-          <label for="no">No</label>
+        <div class="form-author">
+          <label for="author">Author</label>
+          <input type="text" id="author" name="author" required />
         </div>
+        <div class="form-title">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" required />
+        </div>
+        <div class="form-pageno">
+          <label for="noOfPages">Number of pages</label>
+          <input
+            type="number"
+            id="noOfPages"
+            name="noOfPages"
+            min="1"
+            max="999"
+            value="1"
+            required
+          />
+        </div>
+        <div class="form-read">
+          <div>
+            <input
+              type="radio"
+              id="isReadChoice1"
+              name="isRead"
+              value="true"
+              checked
+            />
+            <label for="isReadChoice1">Yes</label>
+            <input
+              type="radio"
+              id="isReadChoice2"
+              name="isRead"
+              value="false"
+            />
+            <label for="isReadChoice2">No</label>
+          </div>
+        </div>
+
         <button type="submit">Add book</button>
       </fieldset>
     </form>
@@ -48,6 +68,8 @@
         <tbody></tbody>
       </table>
     </div>
+
+    <div class="test-area"></div>
 
     <script src="object-library.js"></script>
   </body>

@@ -17,7 +17,22 @@ function Book(author, title, noOfPages, isRead) {
 }
 
 function addBookToLibrary() {
-  // do stuff here
+  // let validFormInput = true;
+
+  const formAuthor = document.getElementById("author".trim()).value;
+  const formTitle = document.getElementById("title".trim()).value;
+  const formNoOfPages = document.getElementById("noOfPages").value;
+  let formIsRead = document.querySelector("input[type=radio]:checked").value;
+
+  console.log(formAuthor);
+  console.log(formTitle);
+  console.log(formNoOfPages);
+  console.log(formIsRead);
+
+  // Add form validation here
+
+  // const bookToAdd = new Book("Book author", "Book title", 204, true);
+  // myLibrary.push(bookToAdd);
 }
 
 function displayBooks() {
@@ -39,6 +54,12 @@ function displayBooks() {
   }
 }
 
+const testArea = document.querySelector(".test-area");
+
+let newBook = document.createElement("p");
+newBook.innerHTML = "author, title, pages, read";
+testArea.appendChild(newBook);
+
 bookForm.addEventListener =
   ("submit",
   (e) => {
@@ -59,4 +80,5 @@ bookForm.addEventListener =
     console.log(`isRead: ${isReadInput}`);
   });
 
+// addBookToLibrary();
 displayBooks();
