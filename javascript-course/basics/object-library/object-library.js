@@ -61,14 +61,21 @@ function displayBooks() {
       const titleData = document.createElement("td");
       const noOfPagesData = document.createElement("td");
       const isReadData = document.createElement("td");
+      const removeBook = document.createElement("button");
       authorData.innerHTML = myLibrary[bookIndex].author;
       titleData.innerHTML = myLibrary[bookIndex].title;
       noOfPagesData.innerHTML = myLibrary[bookIndex].noOfPages;
       isReadData.innerHTML = myLibrary[bookIndex].isRead;
+      removeBook.innerHTML = "Remove";
+      removeBook.addEventListener("click", () => {
+        console.log(`im at index`);
+      });
       newBookRow.appendChild(authorData);
       newBookRow.appendChild(titleData);
       newBookRow.appendChild(noOfPagesData);
       newBookRow.appendChild(isReadData);
+      newBookRow.appendChild(removeBook);
+      console.log("index", bookIndex);
       libraryBooks.appendChild(newBookRow);
     }
   }
