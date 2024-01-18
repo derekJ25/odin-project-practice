@@ -17,3 +17,6 @@ fieldset > div {
 }
 
 /* Add error checking and display to form */
+.error-message {
+  color: red;
+}

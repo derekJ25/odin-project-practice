@@ -1,12 +1,8 @@
-// const libraryBooks = document.querySelector(".library-books");
+const libraryBooksTitle = document.querySelector(".book-table > thead");
 const libraryBooks = document.querySelector(".book-table > tbody");
 const bookForm = document.getElementById("bookForm");
 
-const myLibrary = [
-  { author: "author1", title: "title1", noOfPages: 1, isRead: false },
-  { author: "author2", title: "title2", noOfPages: 2, isRead: true },
-  { author: "author3", title: "title3", noOfPages: 3, isRead: false },
-];
+const myLibrary = [];
 
 function Book(author, title, noOfPages, isRead) {
   // the constructor...
@@ -24,61 +20,67 @@ function addBookToLibrary() {
   const formNoOfPages = document.getElementById("noOfPages").value;
   let formIsRead = document.querySelector("input[type=radio]:checked").value;
 
-  console.log(formAuthor);
-  console.log(formTitle);
-  console.log(formNoOfPages);
-  console.log(formIsRead);
+  const bookToAdd = new Book(formAuthor, formTitle, formNoOfPages, formIsRead);
+  myLibrary.push(bookToAdd);
+
+  console.table(myLibrary);
+
+  displayBooks();
 
   // Add form validation here
-
-  // const bookToAdd = new Book("Book author", "Book title", 204, true);
-  // myLibrary.push(bookToAdd);
 }
 
+// NOTE: make the table responsive
+
 function displayBooks() {
-  for (const bookIndex in myLibrary) {
-    const newBookRow = document.createElement("tr");
-    const authorData = document.createElement("td");
-    const titleData = document.createElement("td");
-    const noOfPagesData = document.createElement("td");
-    const isReadData = document.createElement("td");
-    authorData.innerHTML = myLibrary[bookIndex].author;
-    titleData.innerHTML = myLibrary[bookIndex].title;
-    noOfPagesData.innerHTML = myLibrary[bookIndex].noOfPages;
-    isReadData.innerHTML = myLibrary[bookIndex].isRead;
-    newBookRow.appendChild(authorData);
-    newBookRow.appendChild(titleData);
-    newBookRow.appendChild(noOfPagesData);
-    newBookRow.appendChild(isReadData);
-    libraryBooks.appendChild(newBookRow);
+  clearBookDisplay();
+  if (myLibrary.length == 0) {
+    const noBooksMessage = document.createElement("span");
+    noBooksMessage.classList.add("error-message");
+    noBooksMessage.innerHTML = "There are currently no books in the library!";
+    libraryBooks.appendChild(noBooksMessage);
+  } else {
+    const newTitleHeader = document.createElement("tr");
+    const bookAuthor = document.createElement("th");
+    const bookTitle = document.createElement("th");
+    const bookPages = document.createElement("th");
+    const bookIsRead = document.createElement("th");
+    bookAuthor.innerHTML = "Author";
+    bookTitle.innerHTML = "Title";
+    bookPages.innerHTML = "No. of pages";
+    bookIsRead.innerHTML = "Has book been read?";
+    newTitleHeader.appendChild(bookAuthor);
+    newTitleHeader.appendChild(bookTitle);
+    newTitleHeader.appendChild(bookPages);
+    newTitleHeader.appendChild(bookIsRead);
+    libraryBooksTitle.appendChild(newTitleHeader);
+
+    for (const bookIndex in myLibrary) {
+      const newBookRow = document.createElement("tr");
+      const authorData = document.createElement("td");
+      const titleData = document.createElement("td");
+      const noOfPagesData = document.createElement("td");
+      const isReadData = document.createElement("td");
+      authorData.innerHTML = myLibrary[bookIndex].author;
+      titleData.innerHTML = myLibrary[bookIndex].title;
+      noOfPagesData.innerHTML = myLibrary[bookIndex].noOfPages;
+      isReadData.innerHTML = myLibrary[bookIndex].isRead;
+      newBookRow.appendChild(authorData);
+      newBookRow.appendChild(titleData);
+      newBookRow.appendChild(noOfPagesData);
+      newBookRow.appendChild(isReadData);
+      libraryBooks.appendChild(newBookRow);
+    }
   }
 }
 
-const testArea = document.querySelector(".test-area");
+function clearBookDisplay() {
+  while (libraryBooksTitle.hasChildNodes()) {
+    libraryBooksTitle.removeChild(libraryBooksTitle.firstChild);
+  }
+  while (libraryBooks.hasChildNodes()) {
+    libraryBooks.removeChild(libraryBooks.firstChild);
+  }
+}
 
-let newBook = document.createElement("p");
-newBook.innerHTML = "author, title, pages, read";
-testArea.appendChild(newBook);
-
-bookForm.addEventListener =
-  ("submit",
-  (e) => {
-    e.preventDefault();
-
-    const authorInput = document.getElementById("author");
-    const titleInput = document.getElementById("title");
-    const noOfPagesInput = document.getElementById("noOfPages");
-    const isReadInput = document.getElementById("isRead");
-
-    if (authorInput.innerHTML == "a") {
-      console.log("nope");
-    }
-
-    console.log(`Author: ${authorInput}`);
-    console.log(`Title: ${titleInput}`);
-    console.log(`No of pages: ${noOfPagesInput}`);
-    console.log(`isRead: ${isReadInput}`);
-  });
-
-// addBookToLibrary();
 displayBooks();
