@@ -2,15 +2,29 @@ const libraryBooksTitle = document.querySelector(".book-table > thead");
 const libraryBooks = document.querySelector(".book-table > tbody");
 const bookForm = document.getElementById("bookForm");
 
+const authorIndex = 0;
+const titleIndex = 1;
+
 const myLibrary = [];
 
-function Book(author, title, noOfPages, isRead) {
-  // the constructor...
-  this.author = author;
-  this.title = title;
-  this.noOfPages = noOfPages;
-  this.isRead = isRead;
-}
+var Book = (function () {
+  var nextID = 0;
+
+  return function Book(author, title, noOfPages, isRead) {
+    this.bookID = nextID++;
+    this.author = author;
+    this.title = title;
+    this.noOfPages = noOfPages;
+    this.isRead = isRead;
+  };
+})();
+
+// function Book(author, title, noOfPages, isRead) {
+//   this.author = author;
+//   this.title = title;
+//   this.noOfPages = noOfPages;
+//   this.isRead = isRead;
+// }
 
 function addBookToLibrary() {
   // let validFormInput = true;
@@ -67,9 +81,15 @@ function displayBooks() {
       noOfPagesData.innerHTML = myLibrary[bookIndex].noOfPages;
       isReadData.innerHTML = myLibrary[bookIndex].isRead;
       removeBook.innerHTML = "Remove";
-      removeBook.addEventListener("click", () => {
-        console.log(`im at index`);
+
+      removeBook.addEventListener("click", (e) => {
+        // console.log(e.target.parentElement);
+        const indexToRemove = getIndexOfAuthorAndTitle(
+          e.target.parentElement.childNodes[authorIndex].innerHTML,
+          e.target.parentElement.childNodes[titleIndex].innerHTML
+        );
       });
+
       newBookRow.appendChild(authorData);
       newBookRow.appendChild(titleData);
       newBookRow.appendChild(noOfPagesData);
@@ -88,6 +108,19 @@ function clearBookDisplay() {
   while (libraryBooks.hasChildNodes()) {
     libraryBooks.removeChild(libraryBooks.firstChild);
   }
+}
+
+function getIndexOfAuthorAndTitle(bookAuthor, bookTitle) {
+  for (let index = 0; index < myLibrary.length; index++) {
+    if (
+      myLibrary[index].author === bookAuthor &&
+      myLibrary[index].title === bookTitle
+    ) {
+      myLibrary.splice(index, 1);
+    }
+  }
+  clearBookDisplay();
+  displayBooks();
 }
 
 displayBooks();
