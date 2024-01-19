@@ -39,7 +39,7 @@ function addBookToLibrary() {
 
   console.table(myLibrary);
 
-  displayBooks();
+  updateBookDisplay();
 
   // Add form validation here
 }
@@ -119,8 +119,12 @@ function getIndexOfAuthorAndTitle(bookAuthor, bookTitle) {
       myLibrary.splice(index, 1);
     }
   }
+  updateBookDisplay();
+}
+
+function updateBookDisplay() {
   clearBookDisplay();
   displayBooks();
 }
 
-displayBooks();
+updateBookDisplay();
