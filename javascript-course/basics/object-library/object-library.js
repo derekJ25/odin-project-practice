@@ -2,22 +2,10 @@ const libraryBooksTitle = document.querySelector(".book-table > thead");
 const libraryBooks = document.querySelector(".book-table > tbody");
 const bookForm = document.getElementById("bookForm");
 
-const authorIndex = 0;
-const titleIndex = 1;
+const AUTHOR_INDEX = 0;
+const TITLE_INDEX = 1;
 
 const myLibrary = [];
-
-// var Book = (function () {
-//   var nextID = 0;
-
-//   return function Book(author, title, noOfPages, isRead) {
-//     this.bookID = nextID++;
-//     this.author = author;
-//     this.title = title;
-//     this.noOfPages = noOfPages;
-//     this.isRead = isRead;
-//   };
-// })();
 
 function Book(author, title, noOfPages, isRead) {
   this.author = author;
@@ -25,6 +13,14 @@ function Book(author, title, noOfPages, isRead) {
   this.noOfPages = noOfPages;
   this.isRead = isRead;
 }
+
+Book.prototype.updateReadStatus = function () {
+  if (this.isRead === false) {
+    this.isRead = true;
+  } else {
+    this.isRead = false;
+  }
+};
 
 function addBookToLibrary() {
   // let validFormInput = true;
@@ -85,8 +81,8 @@ function displayBooks() {
       removeBook.addEventListener("click", (e) => {
         removeBookFromLibrary(
           getBookIndex(
-            e.target.parentElement.childNodes[authorIndex].innerHTML,
-            e.target.parentElement.childNodes[titleIndex].innerHTML
+            e.target.parentElement.childNodes[AUTHOR_INDEX].innerHTML,
+            e.target.parentElement.childNodes[TITLE_INDEX].innerHTML
           )
         );
       });
@@ -94,8 +90,8 @@ function displayBooks() {
       changeBookReadStatus.addEventListener("click", (e) => {
         updateBookStatus(
           getBookIndex(
-            e.target.parentElement.childNodes[authorIndex].innerHTML,
-            e.target.parentElement.childNodes[titleIndex].innerHTML
+            e.target.parentElement.childNodes[AUTHOR_INDEX].innerHTML,
+            e.target.parentElement.childNodes[TITLE_INDEX].innerHTML
           )
         );
       });
@@ -120,24 +116,13 @@ function clearBookDisplay() {
   }
 }
 
-// can clean these two functions up since they both very similar in code logic
-// function removeBookFromLibrary(bookAuthor, bookTitle) {
-//   const bookIndex = getBookIndex(bookAuthor, bookTitle);
-//   myLibrary.splice(bookIndex, 1);
-//   updateBookDisplay();
-// }
-
 function removeBookFromLibrary(bookIndex) {
   myLibrary.splice(bookIndex, 1);
   updateBookDisplay();
 }
 
 function updateBookStatus(bookIndex) {
-  if (myLibrary[bookIndex].isRead == false) {
-    myLibrary[bookIndex].isRead = true;
-  } else {
-    myLibrary[bookIndex].isRead = false;
-  }
+  myLibrary[bookIndex].updateReadStatus();
   updateBookDisplay();
 }
 

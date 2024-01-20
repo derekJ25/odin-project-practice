@@ -16,6 +16,10 @@ fieldset > div {
   align-items: center;
 }
 
+tr > button:last-of-type {
+  margin-left: 16px;
+}
+
 /* Add error checking and display to form */
 .error-message {
   color: red;
