@@ -80,19 +80,23 @@ function displayBooks() {
       noOfPagesData.innerHTML = myLibrary[bookIndex].noOfPages;
       isReadData.innerHTML = myLibrary[bookIndex].isRead;
       removeBook.innerHTML = "Remove";
-      changeBookReadStatus.innerHTML = "Change Read Status";
+      changeBookReadStatus.innerHTML = "Update read status";
 
       removeBook.addEventListener("click", (e) => {
         removeBookFromLibrary(
-          e.target.parentElement.childNodes[authorIndex].innerHTML,
-          e.target.parentElement.childNodes[titleIndex].innerHTML
+          getBookIndex(
+            e.target.parentElement.childNodes[authorIndex].innerHTML,
+            e.target.parentElement.childNodes[titleIndex].innerHTML
+          )
         );
       });
 
       changeBookReadStatus.addEventListener("click", (e) => {
         updateBookStatus(
-          e.target.parentElement.childNodes[authorIndex].innerHTML,
-          e.target.parentElement.childNodes[titleIndex].innerHTML
+          getBookIndex(
+            e.target.parentElement.childNodes[authorIndex].innerHTML,
+            e.target.parentElement.childNodes[titleIndex].innerHTML
+          )
         );
       });
 
@@ -117,32 +121,35 @@ function clearBookDisplay() {
 }
 
 // can clean these two functions up since they both very similar in code logic
-function removeBookFromLibrary(bookAuthor, bookTitle) {
-  for (let index = 0; index < myLibrary.length; index++) {
-    if (
-      myLibrary[index].author === bookAuthor &&
-      myLibrary[index].title === bookTitle
-    ) {
-      myLibrary.splice(index, 1);
-    }
+// function removeBookFromLibrary(bookAuthor, bookTitle) {
+//   const bookIndex = getBookIndex(bookAuthor, bookTitle);
+//   myLibrary.splice(bookIndex, 1);
+//   updateBookDisplay();
+// }
+
+function removeBookFromLibrary(bookIndex) {
+  myLibrary.splice(bookIndex, 1);
+  updateBookDisplay();
+}
+
+function updateBookStatus(bookIndex) {
+  if (myLibrary[bookIndex].isRead == false) {
+    myLibrary[bookIndex].isRead = true;
+  } else {
+    myLibrary[bookIndex].isRead = false;
   }
   updateBookDisplay();
 }
 
-function updateBookStatus(bookAuthor, bookTitle) {
+function getBookIndex(bookAuthor, bookTitle) {
   for (let index = 0; index < myLibrary.length; index++) {
     if (
       myLibrary[index].author === bookAuthor &&
       myLibrary[index].title === bookTitle
     ) {
-      if (myLibrary[index].isRead === false) {
-        myLibrary[index].isRead = true;
-      } else {
-        myLibrary[index].isRead = false;
-      }
+      return index;
     }
   }
-  updateBookDisplay();
 }
 
 function updateBookDisplay() {
