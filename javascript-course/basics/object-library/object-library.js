@@ -7,24 +7,24 @@ const titleIndex = 1;
 
 const myLibrary = [];
 
-var Book = (function () {
-  var nextID = 0;
+// var Book = (function () {
+//   var nextID = 0;
 
-  return function Book(author, title, noOfPages, isRead) {
-    this.bookID = nextID++;
-    this.author = author;
-    this.title = title;
-    this.noOfPages = noOfPages;
-    this.isRead = isRead;
-  };
-})();
+//   return function Book(author, title, noOfPages, isRead) {
+//     this.bookID = nextID++;
+//     this.author = author;
+//     this.title = title;
+//     this.noOfPages = noOfPages;
+//     this.isRead = isRead;
+//   };
+// })();
 
-// function Book(author, title, noOfPages, isRead) {
-//   this.author = author;
-//   this.title = title;
-//   this.noOfPages = noOfPages;
-//   this.isRead = isRead;
-// }
+function Book(author, title, noOfPages, isRead) {
+  this.author = author;
+  this.title = title;
+  this.noOfPages = noOfPages;
+  this.isRead = isRead;
+}
 
 function addBookToLibrary() {
   // let validFormInput = true;
@@ -36,8 +36,6 @@ function addBookToLibrary() {
 
   const bookToAdd = new Book(formAuthor, formTitle, formNoOfPages, formIsRead);
   myLibrary.push(bookToAdd);
-
-  console.table(myLibrary);
 
   updateBookDisplay();
 
@@ -76,15 +74,23 @@ function displayBooks() {
       const noOfPagesData = document.createElement("td");
       const isReadData = document.createElement("td");
       const removeBook = document.createElement("button");
+      const changeBookReadStatus = document.createElement("button");
       authorData.innerHTML = myLibrary[bookIndex].author;
       titleData.innerHTML = myLibrary[bookIndex].title;
       noOfPagesData.innerHTML = myLibrary[bookIndex].noOfPages;
       isReadData.innerHTML = myLibrary[bookIndex].isRead;
       removeBook.innerHTML = "Remove";
+      changeBookReadStatus.innerHTML = "Change Read Status";
 
       removeBook.addEventListener("click", (e) => {
-        // console.log(e.target.parentElement);
-        const indexToRemove = getIndexOfAuthorAndTitle(
+        removeBookFromLibrary(
+          e.target.parentElement.childNodes[authorIndex].innerHTML,
+          e.target.parentElement.childNodes[titleIndex].innerHTML
+        );
+      });
+
+      changeBookReadStatus.addEventListener("click", (e) => {
+        updateBookStatus(
           e.target.parentElement.childNodes[authorIndex].innerHTML,
           e.target.parentElement.childNodes[titleIndex].innerHTML
         );
@@ -95,7 +101,7 @@ function displayBooks() {
       newBookRow.appendChild(noOfPagesData);
       newBookRow.appendChild(isReadData);
       newBookRow.appendChild(removeBook);
-      console.log("index", bookIndex);
+      newBookRow.appendChild(changeBookReadStatus);
       libraryBooks.appendChild(newBookRow);
     }
   }
@@ -110,13 +116,30 @@ function clearBookDisplay() {
   }
 }
 
-function getIndexOfAuthorAndTitle(bookAuthor, bookTitle) {
+// can clean these two functions up since they both very similar in code logic
+function removeBookFromLibrary(bookAuthor, bookTitle) {
   for (let index = 0; index < myLibrary.length; index++) {
     if (
       myLibrary[index].author === bookAuthor &&
       myLibrary[index].title === bookTitle
     ) {
       myLibrary.splice(index, 1);
+    }
+  }
+  updateBookDisplay();
+}
+
+function updateBookStatus(bookAuthor, bookTitle) {
+  for (let index = 0; index < myLibrary.length; index++) {
+    if (
+      myLibrary[index].author === bookAuthor &&
+      myLibrary[index].title === bookTitle
+    ) {
+      if (myLibrary[index].isRead === false) {
+        myLibrary[index].isRead = true;
+      } else {
+        myLibrary[index].isRead = false;
+      }
     }
   }
   updateBookDisplay();
