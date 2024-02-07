@@ -23,22 +23,46 @@ Book.prototype.updateReadStatus = function () {
 };
 
 function addBookToLibrary() {
-  // let validFormInput = true;
+  let validFormInput = true;
 
-  const formAuthor = document.getElementById("author".trim()).value;
-  const formTitle = document.getElementById("title".trim()).value;
+  const formAuthor = document.getElementById("author".trim()).value.trim();
+  const formTitle = document.getElementById("title".trim()).value.trim();
   const formNoOfPages = document.getElementById("noOfPages").value;
   let formIsRead = document.querySelector("input[type=radio]:checked").value;
 
-  const bookToAdd = new Book(formAuthor, formTitle, formNoOfPages, formIsRead);
-  myLibrary.push(bookToAdd);
+  if (formAuthor == "" || formAuthor == null) {
+    validFormInput = false;
+    alert("Please enter a valid author name.");
+  } else {
+    if (formTitle == "" || formTitle == null) {
+      validFormInput = false;
+      alert("Please enter a valid title name.");
+    } else {
+      myLibrary.forEach((book) => {
+        if (
+          book.author.toLowerCase() == formAuthor.toLowerCase() &&
+          book.title.toLowerCase() == formTitle.toLowerCase()
+        ) {
+          validFormInput = false;
+          alert("Please enter a non-duplicated title and author name please.");
+        }
+      });
+    }
+  }
+
+  // TODO: Change alert message to a text thing that display on page
+  if (validFormInput) {
+    const bookToAdd = new Book(
+      formAuthor,
+      formTitle,
+      formNoOfPages,
+      formIsRead
+    );
+    myLibrary.push(bookToAdd);
+  }
 
   updateBookDisplay();
-
-  // Add form validation here
 }
-
-// NOTE: make the table responsive
 
 function displayBooks() {
   clearBookDisplay();
