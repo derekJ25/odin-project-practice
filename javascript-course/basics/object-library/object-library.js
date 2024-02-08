@@ -2,6 +2,8 @@ const libraryBooksTitle = document.querySelector(".book-table > thead");
 const libraryBooks = document.querySelector(".book-table > tbody");
 const bookForm = document.getElementById("bookForm");
 
+const authorInputDiv = document.querySelector(".form-author");
+
 const AUTHOR_INDEX = 0;
 const TITLE_INDEX = 1;
 
@@ -32,7 +34,7 @@ function addBookToLibrary() {
 
   if (formAuthor == "" || formAuthor == null) {
     validFormInput = false;
-    alert("Please enter a valid author name.");
+    addErrorMessage(authorInputDiv, "Please enter a valid author name.");
   } else {
     if (formTitle == "" || formTitle == null) {
       validFormInput = false;
@@ -164,6 +166,13 @@ function getBookIndex(bookAuthor, bookTitle) {
 function updateBookDisplay() {
   clearBookDisplay();
   displayBooks();
+}
+
+function addErrorMessage(div, message) {
+  const errorMessage = document.createElement("span");
+  errorMessage.classList.add("error-message");
+  errorMessage.innerHTML = message;
+  div.appendChild(errorMessage);
 }
 
 updateBookDisplay();
