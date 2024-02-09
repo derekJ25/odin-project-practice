@@ -20,7 +20,22 @@ tr > button:last-of-type {
   margin-left: 16px;
 }
 
+div > label,
+input[type="radio"] {
+  margin: 0.5rem 0;
+}
+
+input[type="radio"]:last-of-type {
+  margin-left: 1rem;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 50%;
+}
+
 /* Add error checking and display to form */
 .error-message {
   color: red;
+  margin-top: 0.5rem;
 }

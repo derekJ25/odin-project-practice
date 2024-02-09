@@ -3,6 +3,10 @@ const libraryBooks = document.querySelector(".book-table > tbody");
 const bookForm = document.getElementById("bookForm");
 
 const authorInputDiv = document.querySelector(".form-author");
+const titleInputDiv = document.querySelector(".form-title");
+
+let authorErrorMessageExists = false;
+let titleErrorMessageExists = false;
 
 const AUTHOR_INDEX = 0;
 const TITLE_INDEX = 1;
@@ -24,6 +28,7 @@ Book.prototype.updateReadStatus = function () {
   }
 };
 
+// TODO: Clean up adding and removing error messages
 function addBookToLibrary() {
   let validFormInput = true;
 
@@ -34,12 +39,26 @@ function addBookToLibrary() {
 
   if (formAuthor == "" || formAuthor == null) {
     validFormInput = false;
-    addErrorMessage(authorInputDiv, "Please enter a valid author name.");
+    // updateErrorMessage(authorInputDiv, "Please enter a valid author name.");
+    if (!authorErrorMessageExists) {
+      addErrorMessage(authorInputDiv, "Please enter a valid author name.");
+      authorErrorMessageExists = true;
+    }
   } else {
+    if (authorErrorMessageExists) {
+      removeErrorMessage(authorInputDiv);
+    }
     if (formTitle == "" || formTitle == null) {
       validFormInput = false;
-      alert("Please enter a valid title name.");
+      if (!titleErrorMessageExists) {
+        addErrorMessage(titleInputDiv, "Please enter a valid title name.");
+        titleErrorMessageExists = true;
+      }
+      // alert("Please enter a valid title name.");
     } else {
+      if (titleErrorMessageExists) {
+        removeErrorMessage(titleInputDiv);
+      }
       myLibrary.forEach((book) => {
         if (
           book.author.toLowerCase() == formAuthor.toLowerCase() &&
@@ -173,6 +192,10 @@ function addErrorMessage(div, message) {
   errorMessage.classList.add("error-message");
   errorMessage.innerHTML = message;
   div.appendChild(errorMessage);
+}
+
+function removeErrorMessage(div) {
+  div.removeChild(div.lastChild);
 }
 
 updateBookDisplay();
