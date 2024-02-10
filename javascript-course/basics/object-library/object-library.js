@@ -42,22 +42,22 @@ function addBookToLibrary() {
   if (formAuthor == "" || formAuthor == null) {
     validFormInput = false;
     if (!authorErrorMessageExists) {
-      addErrorMessage(authorInputDiv, "Please enter a valid author name.");
+      updateErrorMessage(authorInputDiv, "author");
       authorErrorMessageExists = true;
     }
   } else {
     if (authorErrorMessageExists) {
-      removeErrorMessage(authorInputDiv);
+      updateErrorMessage(authorInputDiv, "author");
     }
     if (formTitle == "" || formTitle == null) {
       validFormInput = false;
       if (!titleErrorMessageExists) {
-        addErrorMessage(titleInputDiv, "Please enter a valid title name.");
+        updateErrorMessage(titleInputDiv, "title");
         titleErrorMessageExists = true;
       }
     } else {
       if (titleErrorMessageExists) {
-        removeErrorMessage(titleInputDiv);
+        updateErrorMessage(titleInputDiv, "title");
       }
       myLibrary.forEach((book) => {
         if (
@@ -66,22 +66,23 @@ function addBookToLibrary() {
         ) {
           validFormInput = false;
           if (!nonDuplicateErrorMessageExists) {
-            addErrorMessage(
-              dupeErrorDiv,
-              "Please enter a non-duplicated title and author name please."
-            );
+            updateErrorMessage(dupeErrorDiv, "nonDupeErrorMessage");
+            // addErrorMessage(
+            //   dupeErrorDiv,
+            //   "Please enter a non-duplicated title and author name please."
+            // );
           }
           nonDuplicateErrorMessageExists = true;
         } else {
           if (nonDuplicateErrorMessageExists) {
-            removeErrorMessage(dupeErrorDiv);
+            updateErrorMessage(dupeErrorDiv, "nonDupeErrorMessage");
+            // removeErrorMessage(dupeErrorDiv);
           }
         }
       });
     }
   }
 
-  // TODO: Change alert message to a text thing that display on page
   if (validFormInput) {
     const bookToAdd = new Book(
       formAuthor,
@@ -205,7 +206,36 @@ function addErrorMessage(div, message) {
 }
 
 function removeErrorMessage(div) {
-  div.removeChild(div.lastChild);
+  if (div.hasChildNodes()) {
+    div.removeChild(div.lastChild);
+  }
+}
+
+function updateErrorMessage(div, errorMessageFor) {
+  if (errorMessageFor == "author") {
+    if (authorErrorMessageExists) {
+      removeErrorMessage(div);
+    } else {
+      addErrorMessage(div, "Please enter a valid author name.");
+    }
+  } else if (errorMessageFor == "title") {
+    if (titleErrorMessageExists) {
+      removeErrorMessage(div);
+    } else {
+      addErrorMessage(div, "Please enter a valid title name.");
+    }
+  } else if (errorMessageFor == "nonDupeErrorMessage") {
+    if (nonDuplicateErrorMessageExists) {
+      removeErrorMessage(div);
+    } else {
+      addErrorMessage(
+        div,
+        "Please enter a non-duplicated title and author name please."
+      );
+    }
+  } else {
+    alert("error not found");
+  }
 }
 
 updateBookDisplay();

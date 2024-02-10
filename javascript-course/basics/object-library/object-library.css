@@ -34,6 +34,10 @@ input[type="number"] {
   width: 50%;
 }
 
+.book-table > th {
+  border: 1px solid black;
+}
+
 /* Add error checking and display to form */
 .error-message {
   color: red;
