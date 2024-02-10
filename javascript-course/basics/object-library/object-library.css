@@ -34,8 +34,13 @@ input[type="number"] {
   width: 50%;
 }
 
-.book-table > th {
+thead th {
   border: 1px solid black;
+}
+
+th {
+  font-size: 1.4rem;
+  padding: 0.5rem;
 }
 
 /* Add error checking and display to form */

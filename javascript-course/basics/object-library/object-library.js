@@ -67,16 +67,11 @@ function addBookToLibrary() {
           validFormInput = false;
           if (!nonDuplicateErrorMessageExists) {
             updateErrorMessage(dupeErrorDiv, "nonDupeErrorMessage");
-            // addErrorMessage(
-            //   dupeErrorDiv,
-            //   "Please enter a non-duplicated title and author name please."
-            // );
           }
           nonDuplicateErrorMessageExists = true;
         } else {
           if (nonDuplicateErrorMessageExists) {
             updateErrorMessage(dupeErrorDiv, "nonDupeErrorMessage");
-            // removeErrorMessage(dupeErrorDiv);
           }
         }
       });
