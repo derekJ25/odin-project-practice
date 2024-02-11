@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css-reset.css" />
+    <!-- Google Fonts API: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="object-library.css" />
     <title>Object library</title>
   </head>
@@ -13,11 +20,22 @@
         <legend>Add book to library</legend>
         <div class="form-author">
           <label for="author">Author</label>
-          <input type="text" id="author" name="author" required />
+          <input
+            type="text"
+            id="author"
+            name="author"
+            placeholder="Author name"
+          />
         </div>
         <div class="form-title">
           <label for="title">Title</label>
-          <input type="text" id="title" name="title" required />
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="Book title name"
+            required
+          />
         </div>
         <div class="form-pageno">
           <label for="noOfPages">Number of pages</label>

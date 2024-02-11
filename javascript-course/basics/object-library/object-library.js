@@ -30,7 +30,6 @@ Book.prototype.updateReadStatus = function () {
   }
 };
 
-// TODO: Clean up adding and removing error messages
 function addBookToLibrary() {
   let validFormInput = true;
 
@@ -127,7 +126,9 @@ function displayBooks() {
       noOfPagesData.innerHTML = myLibrary[bookIndex].noOfPages;
       isReadData.innerHTML = myLibrary[bookIndex].isRead;
       removeBook.innerHTML = "Remove";
+      removeBook.classList.add("remove-button");
       changeBookReadStatus.innerHTML = "Update read status";
+      changeBookReadStatus.classList.add("read-status-button");
 
       removeBook.addEventListener("click", (e) => {
         removeBookFromLibrary(
@@ -206,6 +207,7 @@ function removeErrorMessage(div) {
   }
 }
 
+// BUG: a, a > click > error message > then add book again error message dissapears and gone
 function updateErrorMessage(div, errorMessageFor) {
   if (errorMessageFor == "author") {
     if (authorErrorMessageExists) {

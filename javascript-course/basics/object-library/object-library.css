@@ -1,3 +1,13 @@
+body {
+  font-family: "Montserrat";
+  font-size: 16px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 form {
   display: flex;
   align-items: center;
@@ -10,19 +20,27 @@ form > fieldset {
   width: 30vw;
 }
 
+fieldset > legend {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  color: black;
+}
+
 fieldset > div {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-tr > button:last-of-type {
-  margin-left: 16px;
-}
-
 div > label,
 input[type="radio"] {
   margin: 0.5rem 0;
+}
+
+input,
+button[type="submit"] {
+  font-size: 1rem;
+  line-height: 1.2rem;
 }
 
 input[type="radio"]:last-of-type {
@@ -34,17 +52,54 @@ input[type="number"] {
   width: 50%;
 }
 
-thead th {
-  border: 1px solid black;
+button[type="submit"] {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding: 0.5rem;
 }
 
 th {
   font-size: 1.4rem;
+  background-color: aqua;
+}
+
+td {
+  font-size: 1rem;
+}
+
+th,
+td {
+  border: 1px solid black;
   padding: 0.5rem;
 }
 
-/* Add error checking and display to form */
+/* tr:nth-child(even) {
+  background-color: aquamarine;
+}
+
+tr:hover {
+  background-color: beige;
+} */
+
+/* .remove-button,
+.read-status-button {
+
+} */
+
+.library-books {
+  margin: 1rem;
+}
+
+.library-books > h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+  text-decoration: underline;
+}
+
 .error-message {
+  font-size: 1rem;
   color: red;
   margin-top: 0.5rem;
 }
