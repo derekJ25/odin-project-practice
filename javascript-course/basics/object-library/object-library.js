@@ -45,18 +45,21 @@ function addBookToLibrary() {
     formTitle == "" ||
     formTitle == null
   ) {
-    // remove error messages if exists
-
     validFormInput = false;
     if (formAuthor == "" || formAuthor == null) {
-      // console.log(
-      //   authorInputDiv.lastElementChild.classList.contains("error-message")
-      // );
-      // Add author error message
+      addErrorMessage(authorInputDiv, "Please enter a valid author name.");
     } else {
-      // Add title error message
+      clearErrorMessage(authorInputDiv);
+    }
+
+    if (formTitle == "" || formTitle == null) {
+      addErrorMessage(titleInputDiv, "Please enter a valid title name.");
+    } else {
+      clearErrorMessage(titleInputDiv);
     }
   } else {
+    clearErrorMessage(authorInputDiv);
+    clearErrorMessage(titleInputDiv);
     const bookToAdd = new Book(
       formAuthor,
       formTitle,
@@ -64,7 +67,6 @@ function addBookToLibrary() {
       formIsRead
     );
     myLibrary.push(bookToAdd);
-    alert(`Added book ${formTitle} by ${formAuthor}`);
   }
 
   // if (formAuthor == "" || formAuthor == null) {
@@ -223,18 +225,26 @@ function updateBookDisplay() {
   displayBooks();
 }
 
-// function addErrorMessage(div, message) {
-//   const errorMessage = document.createElement("span");
-//   errorMessage.classList.add("error-message");
-//   errorMessage.innerHTML = message;
-//   div.appendChild(errorMessage);
-// }
+function addErrorMessage(div, message) {
+  if (!div.lastElementChild.classList.contains("error-message")) {
+    const errorMessage = document.createElement("span");
+    errorMessage.classList.add("error-message");
+    errorMessage.innerHTML = message;
+    div.appendChild(errorMessage);
+  }
+}
 
-// function removeErrorMessage(div) {
-//   if (div.hasChildNodes()) {
-//     div.removeChild(div.lastChild);
-//   }
-// }
+function removeErrorMessage(div) {
+  if (div.lastChild.classList.contains("error-message")) {
+    div.removeChild(div.lastChild);
+  }
+}
+
+function clearErrorMessage(div) {
+  if (div.lastElementChild.classList.contains("error-message")) {
+    removeErrorMessage(div);
+  }
+}
 
 // // BUG: a, a > click > error message > then add book again error message dissapears and gone
 // function updateErrorMessage(div, errorMessageFor) {
