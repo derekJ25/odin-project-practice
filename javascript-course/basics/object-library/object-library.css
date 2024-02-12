@@ -103,3 +103,29 @@ tr:hover {
   color: red;
   margin-top: 0.5rem;
 }
+
+.remove-button,
+.read-status-button {
+  padding: 4px 8px;
+  border-radius: 8px;
+  margin: 4px;
+  border: 2px solid gray;
+}
+
+.remove-button {
+  background-color: red;
+  color: white;
+}
+
+.remove-button:hover {
+  background-color: rgb(235, 0, 0);
+}
+
+.read-status-button {
+  background-color: beige;
+  color: black;
+}
+
+.read-status-button:hover {
+  background-color: rgb(225, 225, 215);
+}

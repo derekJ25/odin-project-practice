@@ -30,6 +30,7 @@ Book.prototype.updateReadStatus = function () {
   }
 };
 
+// Buggy: removes input somehow???
 function addBookToLibrary() {
   let validFormInput = true;
 
