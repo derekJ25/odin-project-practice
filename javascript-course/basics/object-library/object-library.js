@@ -6,10 +6,6 @@ const authorInputDiv = document.querySelector(".form-author");
 const titleInputDiv = document.querySelector(".form-title");
 const dupeErrorDiv = document.querySelector(".dupe-error");
 
-// let authorErrorMessageExists = false;
-// let titleErrorMessageExists = false;
-// let nonDuplicateErrorMessageExists = false;
-
 const AUTHOR_INDEX = 0;
 const TITLE_INDEX = 1;
 
