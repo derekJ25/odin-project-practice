@@ -26,7 +26,6 @@ Book.prototype.updateReadStatus = function () {
   }
 };
 
-// Buggy: removes input somehow???
 function addBookToLibrary() {
   let validFormInput = true;
 
@@ -41,28 +40,47 @@ function addBookToLibrary() {
     formTitle == "" ||
     formTitle == null
   ) {
-    validFormInput = false;
     if (formAuthor == "" || formAuthor == null) {
+      validFormInput = false;
       addErrorMessage(authorInputDiv, "Please enter a valid author name.");
     } else {
+      validFormInput = true;
       clearErrorMessage(authorInputDiv);
     }
 
     if (formTitle == "" || formTitle == null) {
+      validFormInput = false;
       addErrorMessage(titleInputDiv, "Please enter a valid title name.");
     } else {
+      validFormInput = true;
       clearErrorMessage(titleInputDiv);
     }
   } else {
     clearErrorMessage(authorInputDiv);
     clearErrorMessage(titleInputDiv);
-    const bookToAdd = new Book(
-      formAuthor,
-      formTitle,
-      formNoOfPages,
-      formIsRead
-    );
-    myLibrary.push(bookToAdd);
+    let bookExists = getBookIndex(formAuthor, formTitle);
+
+    if (bookExists != undefined) {
+      validFormInput = false;
+      addErrorMessage(
+        dupeErrorDiv,
+        "Please enter a non-duped author and book name."
+      );
+    } else {
+      validFormInput = true;
+      clearErrorMessage(dupeErrorDiv);
+    }
+
+    if (validFormInput && bookExists == undefined) {
+      clearErrorMessage(dupeErrorDiv);
+      const bookToAdd = new Book(
+        formAuthor,
+        formTitle,
+        formNoOfPages,
+        formIsRead
+      );
+      myLibrary.push(bookToAdd);
+    }
   }
 
   updateBookDisplay();
@@ -173,7 +191,10 @@ function updateBookDisplay() {
 }
 
 function addErrorMessage(div, message) {
-  if (!div.lastElementChild.classList.contains("error-message")) {
+  if (
+    div.lastElementChild == null ||
+    !div.lastElementChild.classList.contains("error-message")
+  ) {
     const errorMessage = document.createElement("span");
     errorMessage.classList.add("error-message");
     errorMessage.innerHTML = message;
@@ -182,13 +203,19 @@ function addErrorMessage(div, message) {
 }
 
 function removeErrorMessage(div) {
-  if (div.lastChild.classList.contains("error-message")) {
+  if (
+    div.lastElementChild != null &&
+    div.lastElementChild.classList.contains("error-message")
+  ) {
     div.removeChild(div.lastChild);
   }
 }
 
 function clearErrorMessage(div) {
-  if (div.lastElementChild.classList.contains("error-message")) {
+  if (
+    div.lastElementChild == null ||
+    div.lastElementChild.classList.contains("error-message")
+  ) {
     removeErrorMessage(div);
   }
 }
