@@ -51,7 +51,7 @@
 // console.log(Formatter.timesRun.length);
 
 // Examples of declaring module dependancies
-// Inject mock example
+// Inject mock example, IIFE
 const documentMock = (() => ({
   querySelector: (selector) => ({
     innerHTML: null,
