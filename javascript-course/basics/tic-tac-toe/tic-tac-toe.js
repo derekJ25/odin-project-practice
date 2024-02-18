@@ -21,6 +21,7 @@ const boardGrid = (function () {
 // Display the board
 
 const Game = (function () {
+  let boardCount = 0;
   let board = boardGrid;
   let gameCount = 1;
   let playerOne = createPlayer("player1", PLAYER_ONE_MARKER);
@@ -28,17 +29,49 @@ const Game = (function () {
 
   const startGame = () => {
     console.log(`Starting game ${gameCount}!`);
-    displayBoard();
+    console.log(`P1: ${playerOne.name} | marker: ${playerOne.marker}`);
+    console.log(`P2: ${playerTwo.name} | marker: ${playerTwo.marker}`);
+
+    // while(!isGameFinished()){
+
+    // }
   };
 
-  const displayBoard = () => {
-    console.log("displaying board");
-    console.log(board);
+  const clearGame = () => {
+    console.log("clearing board.");
+    boardCount = 0;
+    gameCount = 1;
   };
 
-  const saySomething = () => console.log("hi");
+  const placeMarker = () => {
+    console.log("placing marker");
+  };
 
-  return { board, gameCount, playerOne, playerTwo, startGame, saySomething };
+  const markerAllowed = () => {
+    console.log("checking if marker can be placed");
+  };
+
+  const isGameFinished = () => {
+    console.log("checks if game is finished");
+    if (boardCount < 10 || checkIfWinner()) {
+    } else if (boardCount == 9 && checkIfWinner() == "none") {
+    }
+  };
+
+  const checkIfWinner = () => {
+    // let winner = "none";
+    // if(){
+    //   winner = playerOne.name;
+    // } else if(){
+    //   winner = playerTwo.name;
+    // }
+    // return winner;
+  };
+
+  return {
+    startGame,
+    clearGame,
+  };
 })();
 
 const Player = function (name, marker) {
