@@ -82,5 +82,3 @@ const Player = function (name, marker) {
 function createPlayer(name, marker) {
   return { name, marker };
 }
-
-Game.startGame();
