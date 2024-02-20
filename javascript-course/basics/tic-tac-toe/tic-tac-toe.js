@@ -1,3 +1,8 @@
+const playerOneNameInput = document.querySelector("#playerOneName");
+const playerTwoNameInput = document.querySelector("#playerTwoName");
+const startGameButton = document.querySelector("#start-game");
+const restartGameButton = document.querySelector("#restart-game");
+
 const PLAYER_ONE_MARKER = "x";
 const PLAYER_TWO_MARKER = "o";
 
@@ -24,8 +29,8 @@ const Game = (function () {
   let boardCount = 0;
   let board = boardGrid;
   let gameCount = 1;
-  let playerOne = createPlayer("player1", PLAYER_ONE_MARKER);
-  let playerTwo = createPlayer("player2", PLAYER_TWO_MARKER);
+  let playerOne = createPlayer(playerOneNameInput.innerHTML, PLAYER_ONE_MARKER);
+  let playerTwo = createPlayer(playerTwoNameInput.innerHTML, PLAYER_TWO_MARKER);
 
   const startGame = () => {
     console.log(`Starting game ${gameCount}!`);
