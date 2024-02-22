@@ -30,13 +30,21 @@ const Game = (function () {
   let boardCount = 0;
   let board = boardGrid;
   let gameCount = 1;
-  let playerOne = createPlayer(playerOneNameInput.value, PLAYER_ONE_MARKER);
-  let playerTwo = createPlayer(playerTwoNameInput.value, PLAYER_TWO_MARKER);
+  let playerOne = null;
+  let playerTwo = null;
 
   const startGame = () => {
     console.log(`Starting game ${gameCount}!`);
-    console.log(`P1: ${playerOne.name} | marker: ${playerOne.marker}`);
-    console.log(`P2: ${playerTwo.name} | marker: ${playerTwo.marker}`);
+    if (
+      (playerOne == null && playerTwo == null) ||
+      (playerOne.name == "" && playerTwo.name == "")
+    ) {
+      playerOne = createPlayer(playerOneNameInput.value, PLAYER_ONE_MARKER);
+      playerTwo = createPlayer(playerTwoNameInput.value, PLAYER_TWO_MARKER);
+    } else {
+      alert("There is already a game going on!");
+    }
+
     showGameInfo();
 
     // while(!isGameFinished()){
@@ -46,8 +54,8 @@ const Game = (function () {
 
   const clearGame = () => {
     console.log("clearing board.");
-    playerOne = "";
-    playerTwo = "";
+    playerOne.name = "";
+    playerTwo.name = "";
     board = boardGrid;
     boardCount = 0;
     gameCount = 1;
@@ -81,8 +89,8 @@ const Game = (function () {
 
   const showGameInfo = () => {
     console.log("-----------------------");
-    console.log(`Player 1: ${playerOne.name}`);
-    console.log(`Player 2: ${playerTwo.name}`);
+    console.log(`P1: ${playerOne.name} | marker: ${playerOne.marker}`);
+    console.log(`P2: ${playerTwo.name} | marker: ${playerTwo.marker}`);
     console.log(`Board: ${board}`);
     console.log(`Board count: ${boardCount}`);
     console.log(`Game count: ${gameCount}`);
