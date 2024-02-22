@@ -2,6 +2,7 @@ const playerOneNameInput = document.querySelector("#playerOneName");
 const playerTwoNameInput = document.querySelector("#playerTwoName");
 const startGameButton = document.querySelector("#start-game");
 const restartGameButton = document.querySelector("#restart-game");
+const validPlayerName = /^[a-zA-Z]+$/;
 
 const PLAYER_ONE_MARKER = "x";
 const PLAYER_TWO_MARKER = "o";
@@ -29,13 +30,14 @@ const Game = (function () {
   let boardCount = 0;
   let board = boardGrid;
   let gameCount = 1;
-  let playerOne = createPlayer(playerOneNameInput.innerHTML, PLAYER_ONE_MARKER);
-  let playerTwo = createPlayer(playerTwoNameInput.innerHTML, PLAYER_TWO_MARKER);
+  let playerOne = createPlayer(playerOneNameInput.value, PLAYER_ONE_MARKER);
+  let playerTwo = createPlayer(playerTwoNameInput.value, PLAYER_TWO_MARKER);
 
   const startGame = () => {
     console.log(`Starting game ${gameCount}!`);
     console.log(`P1: ${playerOne.name} | marker: ${playerOne.marker}`);
     console.log(`P2: ${playerTwo.name} | marker: ${playerTwo.marker}`);
+    showGameInfo();
 
     // while(!isGameFinished()){
 
@@ -44,8 +46,12 @@ const Game = (function () {
 
   const clearGame = () => {
     console.log("clearing board.");
+    playerOne = "";
+    playerTwo = "";
+    board = boardGrid;
     boardCount = 0;
     gameCount = 1;
+    showGameInfo();
   };
 
   const placeMarker = () => {
@@ -73,6 +79,16 @@ const Game = (function () {
     // return winner;
   };
 
+  const showGameInfo = () => {
+    console.log("-----------------------");
+    console.log(`Player 1: ${playerOne.name}`);
+    console.log(`Player 2: ${playerTwo.name}`);
+    console.log(`Board: ${board}`);
+    console.log(`Board count: ${boardCount}`);
+    console.log(`Game count: ${gameCount}`);
+    console.log("-----------------------");
+  };
+
   return {
     startGame,
     clearGame,
@@ -87,3 +103,17 @@ const Player = function (name, marker) {
 function createPlayer(name, marker) {
   return { name, marker };
 }
+
+const validPlayerNames = function () {
+  if (
+    validPlayerName.exec(playerOneNameInput.value) &&
+    validPlayerName.exec(playerTwoNameInput.value)
+  ) {
+    Game.startGame();
+  } else {
+    // error message for valid name
+    alert(
+      "Please enter a valid player name. Cannot contain symbols, space or numbers."
+    );
+  }
+};
