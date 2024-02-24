@@ -22,19 +22,13 @@
         <input type="text" name="playerOne" id="playerOneName" />
         <label for="playerTwo">Player 2</label>
         <input type="text" name="playerTwo" id="playerTwoName" />
-        <button
-          type="submit"
-          id="start-game"
-          onclick="return validPlayerNames()"
-        >
-          Start game
-        </button>
-        <button id="restart-game" onclick="return Game.clearGame()">
-          Restart game
-        </button>
+        <button type="submit" id="start-game">Start game</button>
+        <button id="restart-game">Restart game</button>
       </form>
 
       <div class="gameboard"></div>
+      <div class="message"></div>
+      <div class="results-display"></div>
     </div>
 
     <script src="tic-tac-toe.js"></script>
