@@ -8,17 +8,28 @@ const PLAYER_ONE_MARKER = "x";
 const PLAYER_TWO_MARKER = "o";
 
 const Gameboard = (function () {
-  let gameboard = [["", "", "", "", "", "", "", "", ""]];
+  let gameboard = ["", "", "", "", "", "", "", "", ""];
 
   const render = () => {
     let boardHTML = "";
     gameboard.forEach((square, index) => {
-      boardHTML += `<div class="square" id=square-${index}">${square}</div>`;
+      boardHTML += `<div class="square" id=square-${index}>${square}</div>`;
     });
     document.querySelector(".gameboard").innerHTML = boardHTML;
+    const squares = document.querySelectorAll(".square");
+    squares.forEach((square) => {
+      square.addEventListener("click", Game.handleClick);
+    });
   };
 
-  return { render };
+  const update = (index, marker) => {
+    gameboard[index] = marker;
+    render();
+  };
+
+  const getGameboard = () => gameboard;
+
+  return { render, update, getGameboard };
 })();
 
 const createPlayer = (name, marker) => {
@@ -47,12 +58,23 @@ const Game = (() => {
 
     currentPlayerIndex = 0;
     gameOver = false;
-
     Gameboard.render();
+  };
+
+  const handleClick = (event) => {
+    let index = parseInt(event.target.id.split("-")[1]);
+
+    if (Gameboard.getGameboard()[index] !== "") {
+      return;
+    }
+
+    Gameboard.update(index, players[currentPlayerIndex].marker);
+    currentPlayerIndex = currentPlayerIndex == 0 ? 1 : 0;
   };
 
   return {
     start,
+    handleClick,
   };
 })();
 
