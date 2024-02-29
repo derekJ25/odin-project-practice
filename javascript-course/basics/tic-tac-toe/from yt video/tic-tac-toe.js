@@ -131,7 +131,7 @@ function checkForWin(board) {
 
   for (let i = 0; i < winningCombinations.length; i++) {
     const [a, b, c] = winningCombinations[i];
-    if (board[a] && board[a] == board[b] && board[a] == board[c]) {
+    if (board[a] && board[a] === board[b] && board[a] === board[c]) {
       return true;
     }
   }
