@@ -6,6 +6,14 @@ const PLAYER_TWO_MARKER = "o";
 const EMPTY_CELL = "";
 const GAMEBOARD_SIZE = 9;
 
+const displayController = (() => {
+  const renderMessage = (message) => {
+    document.querySelector(".message").innerHTML = message;
+  };
+
+  return { renderMessage };
+})();
+
 const Gameboard = (() => {
   let gameboard = ["", "", "", "", "", "", "", "", ""];
 
@@ -34,7 +42,6 @@ const Gameboard = (() => {
 const Game = (() => {
   let players = [];
   let currentPlayerIndex;
-  // TODO: Implement game over
   let gameOver;
 
   const start = () => {
@@ -59,9 +66,15 @@ const Game = (() => {
       Gameboard.updateCell(i, EMPTY_CELL);
     }
     currentPlayerIndex = 0;
+    gameOver = false;
+    displayController.renderMessage("");
   };
 
   const handleClick = (event) => {
+    if (gameOver) {
+      return;
+    }
+
     let cellIndex = event.target.id.split("-")[1];
 
     if (Gameboard.getGameboard()[cellIndex] == "") {
@@ -70,8 +83,14 @@ const Game = (() => {
       return;
     }
 
-    if (checkForWin(board)) {
-    } else if (checkForTie(board)) {
+    if (checkForWin(Gameboard.getGameboard())) {
+      gameOver = true;
+      displayController.renderMessage(
+        `${players[currentPlayerIndex].name} wins!`
+      );
+    } else if (checkForTie(Gameboard.getGameboard())) {
+      gameOver = true;
+      displayController.renderMessage("Game is a tie!");
     }
 
     Gameboard.render();
@@ -110,7 +129,9 @@ const checkForWin = (board) => {
   return false;
 };
 
-const checkForTie = (board) => {};
+const checkForTie = (board) => {
+  return board.every((cell) => cell != "");
+};
 
 startGameButton.addEventListener("click", () => {
   Game.start();
