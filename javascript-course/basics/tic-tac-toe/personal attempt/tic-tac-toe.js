@@ -36,7 +36,13 @@ const Gameboard = (() => {
     render();
   };
 
-  return { render, getGameboard, updateCell };
+  const resetBoard = () => {
+    for (let i = 0; i < GAMEBOARD_SIZE; i++) {
+      Gameboard.updateCell(i, EMPTY_CELL);
+    }
+  };
+
+  return { render, getGameboard, updateCell, resetBoard };
 })();
 
 const Game = (() => {
@@ -57,14 +63,13 @@ const Game = (() => {
     ];
     currentPlayerIndex = 0;
     gameOver = false;
-
+    displayController.renderMessage("");
+    Gameboard.resetBoard();
     Gameboard.render();
   };
 
   const restart = () => {
-    for (let i = 0; i < GAMEBOARD_SIZE; i++) {
-      Gameboard.updateCell(i, EMPTY_CELL);
-    }
+    Gameboard.resetBoard();
     currentPlayerIndex = 0;
     gameOver = false;
     displayController.renderMessage("");
@@ -77,24 +82,29 @@ const Game = (() => {
 
     let cellIndex = event.target.id.split("-")[1];
 
-    if (Gameboard.getGameboard()[cellIndex] == "") {
-      Gameboard.updateCell(cellIndex, players[currentPlayerIndex].marker);
+    if (players.length != 0) {
+      if (Gameboard.getGameboard()[cellIndex] == "") {
+        Gameboard.updateCell(cellIndex, players[currentPlayerIndex].marker);
+      } else {
+        return;
+      }
+
+      if (checkForWin(Gameboard.getGameboard())) {
+        gameOver = true;
+        displayController.renderMessage(
+          `${players[currentPlayerIndex].name} wins!`
+        );
+      } else if (checkForTie(Gameboard.getGameboard())) {
+        gameOver = true;
+        displayController.renderMessage("Game is a tie!");
+      }
+
+      currentPlayerIndex = currentPlayerIndex == 0 ? 1 : 0;
     } else {
-      return;
-    }
-
-    if (checkForWin(Gameboard.getGameboard())) {
-      gameOver = true;
       displayController.renderMessage(
-        `${players[currentPlayerIndex].name} wins!`
+        "Please start game with the following player names."
       );
-    } else if (checkForTie(Gameboard.getGameboard())) {
-      gameOver = true;
-      displayController.renderMessage("Game is a tie!");
     }
-
-    Gameboard.render();
-    currentPlayerIndex = currentPlayerIndex == 0 ? 1 : 0;
   };
 
   return { start, restart, handleClick };
@@ -103,10 +113,6 @@ const Game = (() => {
 const createPlayer = (name, marker) => {
   return { name, marker };
 };
-
-// 0|1|2
-// 3|4|5
-// 6|7|8
 
 const checkForWin = (board) => {
   const winningCombinations = [
