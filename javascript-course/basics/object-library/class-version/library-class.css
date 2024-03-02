@@ -1,3 +1,7 @@
+:root {
+  --width-input: 15vw;
+}
+
 body {
   font-family: "Montserrat";
   font-size: 16px;
@@ -14,4 +18,33 @@ h2 {
   font-size: 2rem;
   margin: 2rem 0;
   font-weight: 800;
+}
+
+input,
+select,
+#addBook {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input:not(:first-child),
+select,
+#addBook {
+  margin-top: 0.5rem;
+}
+
+input {
+  width: var(--width-input);
+}
+
+select,
+#addBook {
+  width: calc(var(--width-input) + 8px);
+}
+
+#addBook {
+  padding: 0.5rem 0;
 }
