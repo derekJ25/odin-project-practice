@@ -17,11 +17,11 @@
   <body>
     <h2>Library</h2>
     <div class="user-input">
-      <!-- <label for="author">Author</label> -->
+      <label for="author">Author</label>
       <input type="text" name="author" id="author" placeholder="Author" />
-      <!-- <label for="title">Title</label> -->
+      <label for="title">Title</label>
       <input type="text" name="title" id="title" placeholder="Title" />
-      <!-- <label for="totalPages">Total pages</label> -->
+      <label for="totalPages">Total pages</label>
       <input
         type="number"
         name="totalPages"
@@ -30,14 +30,19 @@
         min="1"
         max="999"
       />
-      <!-- <label for="isRead">Has book been read?</label> -->
+      <label for="isRead">Has book been read?</label>
       <select name="isRead" id="isRead">
         <option value="Yes">Yes</option>
         <option value="No">No</option>
       </select>
       <button id="addBook">Add book</button>
     </div>
-    <div class="library-table"></div>
+
+    <div class="library-table">
+      <h2>Library of books</h2>
+    </div>
+    <div class="message"></div>
+
     <script src="library-class.js"></script>
   </body>
 </html>
