@@ -1,13 +1,17 @@
 const Library = (() => {
-  let books = [
-    ["author1", "book1", 2, true],
-    ["author2", "book2", 102, false],
-  ];
+  let books = [];
 
   const addBook = () => {
     renderLibrary();
     if (validateInput()) {
-      console.log("valid");
+      const bookToAdd = Book(
+        document.querySelector("#author").value,
+        document.querySelector("#title").value,
+        document.querySelector("#totalPages").value,
+        document.querySelector("#isRead").value
+      );
+      books.push(bookToAdd);
+      renderLibrary();
     } else {
       renderMessage("Input(s) are invalid");
     }
@@ -17,11 +21,14 @@ const Library = (() => {
     if (books.length > 0) {
       books.forEach((book) => {
         const bookRow = document.createElement("tr");
-        book.forEach((bookValues) => {
-          const bookData = document.createElement("td");
-          bookData.append(bookValues);
-          bookRow.appendChild(bookData);
-        });
+        for (const bookValues in book) {
+          if (Object.hasOwnProperty.call(book, bookValues)) {
+            const bookValue = book[bookValues];
+            const bookData = document.createElement("td");
+            bookData.append(bookValue);
+            bookRow.appendChild(bookData);
+          }
+        }
         // create update status & remove button
         document
           .querySelector(".library-table table thead")

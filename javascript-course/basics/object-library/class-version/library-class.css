@@ -64,3 +64,13 @@ select,
   margin-left: auto;
   margin-right: auto;
 }
+
+.library-table th {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.library-table th,
+.library-table td {
+  padding: 0.5rem 1rem;
+}
