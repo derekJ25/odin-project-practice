@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="library-class.css" />
     <title>Library with class</title>
   </head>
-  <body>
+  <body onload="Library.renderLibrary()">
     <h2>Library</h2>
     <div class="user-input">
       <label for="author">Author</label>
@@ -40,6 +40,15 @@
 
     <div class="library-table">
       <h2>Library of books</h2>
+      <table>
+        <thead>
+          <th scope="col">Author</th>
+          <th scope="col">Title</th>
+          <th scope="col">Pages</th>
+          <th scope="col">Book status</th>
+        </thead>
+        <tbody></tbody>
+      </table>
     </div>
     <div class="message"></div>
 

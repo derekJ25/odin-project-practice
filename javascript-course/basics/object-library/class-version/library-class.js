@@ -1,8 +1,11 @@
 const Library = (() => {
-  let books = [];
+  let books = [
+    ["author1", "book1", 2, true],
+    ["author2", "book2", 102, false],
+  ];
 
   const addBook = () => {
-    showLibrary();
+    renderLibrary();
     if (validateInput()) {
       console.log("valid");
     } else {
@@ -10,11 +13,19 @@ const Library = (() => {
     }
   };
 
-  const getBooks = () => books;
-
-  const showLibrary = () => {
+  const renderLibrary = () => {
     if (books.length > 0) {
-      console.log(books);
+      books.forEach((book) => {
+        const bookRow = document.createElement("tr");
+        book.forEach((bookValues) => {
+          const bookData = document.createElement("td");
+          bookData.append(bookValues);
+          bookRow.appendChild(bookData);
+        });
+        document
+          .querySelector(".library-table table thead")
+          .appendChild(bookRow);
+      });
     } else {
       renderMessage("Empty library");
     }
@@ -24,12 +35,14 @@ const Library = (() => {
     document.querySelector(".message").innerHTML = message;
   };
 
-  return { addBook, getBooks, showLibrary };
+  return { addBook, renderLibrary, renderMessage };
 })();
 
 const Book = (author, title, totalPages, isRead) => {
   return { author, title, totalPages, isRead };
 };
+
+// Book.prototype.updateBookStatus = function () {};
 
 const validateInput = () => {
   if (
