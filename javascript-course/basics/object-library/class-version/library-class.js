@@ -22,6 +22,7 @@ const Library = (() => {
           bookData.append(bookValues);
           bookRow.appendChild(bookData);
         });
+        // create update status & remove button
         document
           .querySelector(".library-table table thead")
           .appendChild(bookRow);
