@@ -19,8 +19,9 @@ const Library = (() => {
 
   const renderLibrary = () => {
     if (books.length > 0) {
+      renderMessage("");
       document.querySelectorAll("tbody tr").forEach((row) => row.remove());
-      books.forEach((book) => {
+      books.forEach((index, book) => {
         const bookRow = document.createElement("tr");
         for (const bookValues in book) {
           if (Object.hasOwnProperty.call(book, bookValues)) {
@@ -30,6 +31,14 @@ const Library = (() => {
             bookRow.appendChild(bookData);
           }
         }
+
+        // const removeButton = document.createElement("button");
+        // removeButton.innerHTML = "Remove";
+        // removeButton.addEventListener("click", () => {
+        // books.slice(index, 1);
+        // });
+
+        // bookRow.appendChild(removeButton);
 
         document
           .querySelector(".library-table table tbody")
