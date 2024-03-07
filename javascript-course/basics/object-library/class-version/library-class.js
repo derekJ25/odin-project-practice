@@ -19,6 +19,7 @@ const Library = (() => {
 
   const renderLibrary = () => {
     if (books.length > 0) {
+      document.querySelectorAll("tbody tr").forEach((row) => row.remove());
       books.forEach((book) => {
         const bookRow = document.createElement("tr");
         for (const bookValues in book) {
@@ -29,9 +30,9 @@ const Library = (() => {
             bookRow.appendChild(bookData);
           }
         }
-        // create update status & remove button
+
         document
-          .querySelector(".library-table table thead")
+          .querySelector(".library-table table tbody")
           .appendChild(bookRow);
       });
     } else {
