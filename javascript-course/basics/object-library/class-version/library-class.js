@@ -31,14 +31,8 @@ const Library = (() => {
             bookRow.appendChild(bookData);
           }
         }
-
-        const removeButton = document.createElement("button");
-        removeButton.innerHTML = "Remove";
-        removeButton.addEventListener("click", () => {
-          books.splice(index, 1);
-          renderLibrary();
-        });
-        bookRow.appendChild(removeButton);
+        bookRow.appendChild(createButton("remove", books, index));
+        bookRow.appendChild(createButton("update status", books, index));
 
         document
           .querySelector(".library-table table tbody")
@@ -53,14 +47,21 @@ const Library = (() => {
     document.querySelector(".message").innerHTML = message;
   };
 
-  return { addBook, renderLibrary, renderMessage };
+  const updateBookStatus = (index) => {
+    if (books[index].isRead == "Yes") {
+      books[index].isRead = "No";
+    } else {
+      books[index].isRead = "Yes";
+    }
+    renderLibrary();
+  };
+
+  return { addBook, renderLibrary, renderMessage, updateBookStatus };
 })();
 
 const Book = (author, title, totalPages, isRead) => {
   return { author, title, totalPages, isRead };
 };
-
-// Book.prototype.updateBookStatus = function () {};
 
 const validateInput = () => {
   if (
@@ -71,6 +72,25 @@ const validateInput = () => {
     return false;
   }
   return true;
+};
+
+const createButton = (purpose, books, index) => {
+  const button = document.createElement("button");
+  if (purpose == "remove") {
+    button.innerHTML = "Remove";
+    button.addEventListener("click", () => {
+      books.splice(index, 1);
+      Library.renderLibrary();
+    });
+  } else if (purpose == "update status") {
+    // insert code for updating status
+    button.innerHTML = "Update status";
+    button.addEventListener("click", () => {
+      Library.updateBookStatus(index);
+    });
+  }
+
+  return button;
 };
 
 document.querySelector("#addBook").addEventListener("click", Library.addBook);
