@@ -18,10 +18,10 @@ const Library = (() => {
   };
 
   const renderLibrary = () => {
+    document.querySelectorAll("tbody tr").forEach((row) => row.remove());
     if (books.length > 0) {
       renderMessage("");
-      document.querySelectorAll("tbody tr").forEach((row) => row.remove());
-      books.forEach((index, book) => {
+      books.forEach((book, index) => {
         const bookRow = document.createElement("tr");
         for (const bookValues in book) {
           if (Object.hasOwnProperty.call(book, bookValues)) {
@@ -32,13 +32,13 @@ const Library = (() => {
           }
         }
 
-        // const removeButton = document.createElement("button");
-        // removeButton.innerHTML = "Remove";
-        // removeButton.addEventListener("click", () => {
-        // books.slice(index, 1);
-        // });
-
-        // bookRow.appendChild(removeButton);
+        const removeButton = document.createElement("button");
+        removeButton.innerHTML = "Remove";
+        removeButton.addEventListener("click", () => {
+          books.splice(index, 1);
+          renderLibrary();
+        });
+        bookRow.appendChild(removeButton);
 
         document
           .querySelector(".library-table table tbody")
