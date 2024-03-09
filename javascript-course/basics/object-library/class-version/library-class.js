@@ -1,3 +1,9 @@
+const EMPTY_VALUE = "";
+const PURPOSE_REMOVE = "Remove";
+const PURPOSE_UPDATE_STATUS = "Update status";
+const BOOK_STATUS_READ = "Yes";
+const BOOK_STATUS_NOT_READ = "No";
+
 const Library = (() => {
   let books = [];
 
@@ -20,7 +26,7 @@ const Library = (() => {
   const renderLibrary = () => {
     document.querySelectorAll("tbody tr").forEach((row) => row.remove());
     if (books.length > 0) {
-      renderMessage("");
+      renderMessage(EMPTY_VALUE);
       books.forEach((book, index) => {
         const bookRow = document.createElement("tr");
         for (const bookValues in book) {
@@ -31,8 +37,8 @@ const Library = (() => {
             bookRow.appendChild(bookData);
           }
         }
-        bookRow.appendChild(createButton("remove", books, index));
-        bookRow.appendChild(createButton("update status", books, index));
+        bookRow.appendChild(createButton(PURPOSE_REMOVE, books, index));
+        bookRow.appendChild(createButton(PURPOSE_UPDATE_STATUS, books, index));
 
         document
           .querySelector(".library-table table tbody")
@@ -48,11 +54,11 @@ const Library = (() => {
   };
 
   const updateBookStatus = (index) => {
-    if (books[index].isRead == "Yes") {
-      books[index].isRead = "No";
-    } else {
-      books[index].isRead = "Yes";
-    }
+    const updateStatus =
+      books[index].isRead == BOOK_STATUS_READ
+        ? BOOK_STATUS_NOT_READ
+        : BOOK_STATUS_READ;
+    books[index].isRead = updateStatus;
     renderLibrary();
   };
 
@@ -65,8 +71,8 @@ const Book = (author, title, totalPages, isRead) => {
 
 const validateInput = () => {
   if (
-    document.querySelector("#author").value == "" ||
-    document.querySelector("#title").value == "" ||
+    document.querySelector("#author").value == EMPTY_VALUE ||
+    document.querySelector("#title").value == EMPTY_VALUE ||
     isNaN(parseInt(document.querySelector("#totalPages").value))
   ) {
     return false;
@@ -76,15 +82,14 @@ const validateInput = () => {
 
 const createButton = (purpose, books, index) => {
   const button = document.createElement("button");
-  if (purpose == "remove") {
-    button.innerHTML = "Remove";
+  if (purpose == PURPOSE_REMOVE) {
+    button.innerHTML = PURPOSE_REMOVE;
     button.addEventListener("click", () => {
       books.splice(index, 1);
       Library.renderLibrary();
     });
-  } else if (purpose == "update status") {
-    // insert code for updating status
-    button.innerHTML = "Update status";
+  } else if (purpose == PURPOSE_UPDATE_STATUS) {
+    button.innerHTML = PURPOSE_UPDATE_STATUS;
     button.addEventListener("click", () => {
       Library.updateBookStatus(index);
     });
