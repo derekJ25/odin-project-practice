@@ -4,4 +4,5 @@ import loadAbout from "./about";
 import loadMenu from "./menu";
 
 // loadHome();
-loadAbout;
+// loadAbout();
+loadMenu();
