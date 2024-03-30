@@ -1,12 +1,7 @@
-import _ from "lodash";
+// import _ from "lodash";
+import loadHome from "./home";
+import loadAbout from "./about";
+import loadMenu from "./menu";
 
-function component() {
-  const element = document.createElement("div");
-
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(["Hello", "webpack"], " ");
-
-  return element;
-}
-
-document.body.appendChild(component());
+// loadHome();
+loadAbout;
