@@ -4,9 +4,9 @@ import loadMenu from "./menu";
 import loadAbout from "./about";
 
 document.querySelectorAll("button").forEach((button) => {
+  clearContent();
   button.addEventListener("click", (button) => {
     const value = button.target.value;
-    clearContent();
     if (value == "home") {
       loadHome();
     }
