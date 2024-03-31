@@ -3,18 +3,26 @@ import loadHome from "./home";
 import loadMenu from "./menu";
 import loadAbout from "./about";
 
+loadHome();
+
 document.querySelectorAll("button").forEach((button) => {
-  clearContent();
   button.addEventListener("click", (button) => {
     const value = button.target.value;
-    if (value == "home") {
-      loadHome();
-    }
-    if (value == "menu") {
-      loadMenu();
-    }
-    if (value == "about") {
-      loadAbout();
+    switch (value) {
+      case "home":
+        clearContent();
+        loadHome();
+        break;
+      case "menu":
+        clearContent();
+        loadMenu();
+        break;
+      case "about":
+        clearContent();
+        loadAbout();
+        break;
+      default:
+        loadHome();
     }
   });
 });
