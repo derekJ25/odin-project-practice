@@ -26,9 +26,6 @@ import ToDoItem from "./item-class";
 // };
 
 const loadHomePage = () => {
-  loadNavBar();
-  loadContent();
-
   const itemsCreated = [
     new ToDoItem("title1", "this is a test", new Date(2024 - 12 - 31), "high"),
     new ToDoItem(
@@ -43,6 +40,9 @@ const loadHomePage = () => {
   itemsCreated.forEach((item) => {
     item.displayItem();
   });
+
+  loadNavBar();
+  loadContent();
 };
 
 export default loadHomePage;
