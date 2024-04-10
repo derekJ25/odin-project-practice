@@ -4,6 +4,7 @@
   --content-width-size: 75%;
   --navbar-background-color: beige;
   --content-background-color: cornflowerblue;
+  --left-right-padding-size: 2rem;
 }
 
 body {
@@ -26,15 +27,17 @@ body {
   width: calc(100% - var(--content-width-size));
   height: 100vh;
   background-color: var(--navbar-background-color);
-  padding: 2rem 2rem;
+  padding: var(--left-right-padding-size) 2rem;
 }
 
 .content {
   width: var(--content-width-size);
   height: 100vh;
   background-color: var(--content-background-color);
+  padding: var(--left-right-padding-size) 5rem;
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 32px;
+  margin-bottom: 1rem;
 }
