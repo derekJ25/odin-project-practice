@@ -25,16 +25,24 @@ body {
   display: flex;
   flex-direction: column;
   width: calc(100% - var(--content-width-size));
-  height: 100vh;
+  height: calc(100vh - calc(var(--left-right-padding-size) * 2));
   background-color: var(--navbar-background-color);
   padding: var(--left-right-padding-size) 2rem;
 }
 
 .content {
   width: var(--content-width-size);
-  height: 100vh;
+  height: calc(100vh - calc(var(--left-right-padding-size) * 2));
   background-color: var(--content-background-color);
   padding: var(--left-right-padding-size) 5rem;
+}
+
+.add-item {
+  margin-top: auto;
+}
+
+.add-item button {
+  width: 100%;
 }
 
 h1 {
