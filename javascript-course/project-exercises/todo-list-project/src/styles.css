@@ -5,6 +5,7 @@
   --navbar-background-color: beige;
   --content-background-color: cornflowerblue;
   --left-right-padding-size: 2rem;
+  --add-item-button-height: 1.5rem;
 }
 
 body {
@@ -17,32 +18,81 @@ body {
   margin: 0;
 }
 
-.container {
+/* .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-container {
   display: flex;
 }
 
-.nav-bar {
+.nav-list {
   display: flex;
   flex-direction: column;
-  width: calc(100% - var(--content-width-size));
-  height: calc(100vh - calc(var(--left-right-padding-size) * 2));
+  width: calc(100vw - var(--content-width-size));
+  height: calc(
+    100vh - calc((var(--left-right-padding-size) * 2)) -
+      var(--add-item-button-height)
+  );
   background-color: var(--navbar-background-color);
   padding: var(--left-right-padding-size) 2rem;
 }
 
 .content {
   width: var(--content-width-size);
-  height: calc(100vh - calc(var(--left-right-padding-size) * 2));
+  height: calc(
+    100vh - calc(var(--left-right-padding-size) * 2) -
+      var(--add-item-button-height)
+  );
   background-color: var(--content-background-color);
   padding: var(--left-right-padding-size) 5rem;
 }
 
-.add-item {
-  margin-top: auto;
+.bottom-container button {
+  border: 1px solid lightgray;
+  height: var(--add-item-button-height);
+}
+
+.bottom-container button:first-of-type {
+  width: 25.5vw;
+} */
+
+.container {
+  display: flex;
+}
+
+.nav-container,
+.content-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  /* width: calc(100vw - var(--content-width-size)); */
+  width: ;
+  height: calc(
+    100vh - calc((var(--left-right-padding-size) * 2)) -
+      var(--add-item-button-height)
+  );
+  background-color: var(--navbar-background-color);
+  padding: var(--left-right-padding-size) 2rem;
 }
 
 .add-item button {
   width: 100%;
+}
+
+.content {
+  /* width: var(--content-width-size); */
+  height: calc(
+    100vh - calc(var(--left-right-padding-size) * 2) -
+      var(--add-item-button-height)
+  );
+  background-color: var(--content-background-color);
+  padding: var(--left-right-padding-size) 5rem;
 }
 
 h1 {
