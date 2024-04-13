@@ -41,7 +41,7 @@ const loadHomePage = () => {
     item.displayItem();
   });
 
-  loadNavBar();
+  loadNavBar(itemsCreated);
   loadContent();
 };
 
