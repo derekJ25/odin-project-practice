@@ -1,11 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
+/* 
+TODO:
+> Add variables for flexibility
+*/
+
 :root {
-  --content-width-size: 75%;
+  /* --content-width-size: 75vw; */
   --navbar-background-color: beige;
   --content-background-color: cornflowerblue;
-  --left-right-padding-size: 2rem;
-  --add-item-button-height: 1.5rem;
+  /* Add padding variables */
+  --action-button-height: 1.5rem;
 }
 
 body {
@@ -18,46 +23,6 @@ body {
   margin: 0;
 }
 
-/* .container {
-  display: flex;
-  flex-direction: column;
-}
-
-.content-container {
-  display: flex;
-}
-
-.nav-list {
-  display: flex;
-  flex-direction: column;
-  width: calc(100vw - var(--content-width-size));
-  height: calc(
-    100vh - calc((var(--left-right-padding-size) * 2)) -
-      var(--add-item-button-height)
-  );
-  background-color: var(--navbar-background-color);
-  padding: var(--left-right-padding-size) 2rem;
-}
-
-.content {
-  width: var(--content-width-size);
-  height: calc(
-    100vh - calc(var(--left-right-padding-size) * 2) -
-      var(--add-item-button-height)
-  );
-  background-color: var(--content-background-color);
-  padding: var(--left-right-padding-size) 5rem;
-}
-
-.bottom-container button {
-  border: 1px solid lightgray;
-  height: var(--add-item-button-height);
-}
-
-.bottom-container button:first-of-type {
-  width: 25.5vw;
-} */
-
 .container {
   display: flex;
 }
@@ -68,17 +33,22 @@ body {
   flex-direction: column;
 }
 
+.add-item,
+.actions {
+  border-top: 1px solid lightgrey;
+}
+
+.nav-list,
+.content {
+  height: calc(100vh - 4rem - 1.5rem);
+}
+
 .nav-list {
   display: flex;
   flex-direction: column;
-  /* width: calc(100vw - var(--content-width-size)); */
-  width: ;
-  height: calc(
-    100vh - calc((var(--left-right-padding-size) * 2)) -
-      var(--add-item-button-height)
-  );
+  width: calc(25vw - 4rem);
   background-color: var(--navbar-background-color);
-  padding: var(--left-right-padding-size) 2rem;
+  padding: 2rem;
 }
 
 .add-item button {
@@ -86,16 +56,26 @@ body {
 }
 
 .content {
-  /* width: var(--content-width-size); */
-  height: calc(
-    100vh - calc(var(--left-right-padding-size) * 2) -
-      var(--add-item-button-height)
-  );
+  width: calc(75vw - 10rem);
   background-color: var(--content-background-color);
-  padding: var(--left-right-padding-size) 5rem;
+  padding: 2rem 5rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+.actions button {
+  width: 10%;
 }
 
 h1 {
   font-size: 32px;
   margin-bottom: 1rem;
+}
+
+button {
+  border: none;
+  height: 1.5rem;
 }
