@@ -11,6 +11,7 @@ TODO:
   --content-background-color: cornflowerblue;
   /* Add padding variables */
   --action-button-height: 1.5rem;
+  --button-color: #eeeeee;
 }
 
 body {
@@ -38,20 +39,34 @@ body {
   border-top: 1px solid lightgrey;
 }
 
+.standard-actions {
+  margin-top: 2rem;
+}
+
 .nav-list {
   display: flex;
   flex-direction: column;
-  /* 100vh - (2 x padding size) - border height */
+  /* 100vh - button height - button border */
   height: calc(100vh - 1.5rem - 1px);
   width: calc(25vw);
   background-color: var(--navbar-background-color);
 }
 
 .nav-list button {
-  height: 2rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-align: left;
-  padding-left: 2rem;
+  padding: 0.2rem 2rem;
+  background-color: var(--button-color);
+}
+
+.nav-list button:hover {
+  background-color: lightgrey;
+}
+
+.category-title {
+  background-color: var(--button-color);
+  font-weight: 600;
+  padding: 0.5rem 2rem;
 }
 
 .add-item button {
@@ -59,7 +74,7 @@ body {
 }
 
 .content {
-  /* 100vh - (2 x padding size) - button height - border height */
+  /* 100vh - (2 x padding) - button height - button border */
   height: calc(100vh - 4rem - 1.5rem - 1px);
   width: calc(75vw - 10rem);
   background-color: var(--content-background-color);
