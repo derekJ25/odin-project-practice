@@ -37,10 +37,6 @@ const loadHomePage = () => {
     new ToDoItem("title3", "what are we doing", new Date(2024 - 2 - 29), "low"),
   ];
 
-  itemsCreated.forEach((item) => {
-    item.displayItem();
-  });
-
   loadNavBar(itemsCreated);
   loadContent();
 };
