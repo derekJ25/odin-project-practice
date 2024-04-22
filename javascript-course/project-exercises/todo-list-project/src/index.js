@@ -3,8 +3,6 @@ import TodoItem from "./js/todo-class";
 import "./styles/css-reset.css";
 import "./styles/styles.css";
 
-console.log("working");
-
 const hobbiesCategory = new Category("hobbies", [
   new TodoItem("Running", "We like to exercise", "2/3", "Low"),
   new TodoItem(
@@ -41,19 +39,15 @@ const workCategoryJSON = [
   },
 ];
 
-// const workCategory = new Category(
-//   workCategoryJSON.name,
-//   workCategoryJSON.items.forEach((item) => {
-//     new TodoItem(item.name, item.description, item.dueDate, item.priority);
-//   })
-// );
+let workCategory;
 workCategoryJSON.forEach((category) => {
-  console.log(category.title);
+  let items = [];
   category.items.forEach((item) => {
-    console.log(
-      `${item.name} | ${item.description} | ${item.dueDate} | ${item.priority}`
+    items.push(
+      new TodoItem(item.name, item.description, item.dueDate, item.priority)
     );
   });
+  workCategory = new Category(category.title, items);
 });
 
-// workCategory.displayCategory();
+workCategory.displayCategory();
