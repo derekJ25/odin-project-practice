@@ -17,7 +17,7 @@ const hobbiesCategory = new Category("hobbies", [
 
 const workCategoryJSON = [
   {
-    category: "work",
+    title: "work",
     items: [
       {
         name: "item1",
@@ -47,7 +47,13 @@ const workCategoryJSON = [
 //     new TodoItem(item.name, item.description, item.dueDate, item.priority);
 //   })
 // );
-
-console.log(workCategoryJSON.items);
+workCategoryJSON.forEach((category) => {
+  console.log(category.title);
+  category.items.forEach((item) => {
+    console.log(
+      `${item.name} | ${item.description} | ${item.dueDate} | ${item.priority}`
+    );
+  });
+});
 
 // workCategory.displayCategory();
