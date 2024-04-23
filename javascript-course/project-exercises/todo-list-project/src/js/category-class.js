@@ -10,6 +10,13 @@ class Category {
       item.displayTodoItem();
     });
   }
+
+  addItem(addItem) {
+    this.items.push(addItem);
+  }
+
+  // TODO
+  removeItem(removeItemTitle, removeItemDescription) {}
 }
 
 export default Category;

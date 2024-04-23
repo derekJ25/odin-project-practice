@@ -11,6 +11,22 @@ class TodoItem {
       ` Title: ${this.title} | Description: ${this.description} | Due date: ${this.dueDate} | Priority: ${this.priority}`
     );
   }
+
+  getTitle() {
+    return this.title;
+  }
+
+  getDescription() {
+    return this.description;
+  }
+
+  getDueDate() {
+    return this.dueDate;
+  }
+
+  getPriority() {
+    return this.priority;
+  }
 }
 
 export default TodoItem;
