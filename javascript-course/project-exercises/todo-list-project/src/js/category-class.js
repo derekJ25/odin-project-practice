@@ -15,8 +15,24 @@ class Category {
     this.items.push(addItem);
   }
 
-  // TODO
-  removeItem(removeItemTitle, removeItemDescription) {}
+  removeItem(removeItemTitle, removeItemDescription) {
+    const indexToRemove = this.#getIndex(
+      removeItemTitle,
+      removeItemDescription
+    );
+    this.items.splice(indexToRemove, 1);
+  }
+
+  #getIndex(removeItemTitle, removeItemDescription) {
+    for (const item of this.items) {
+      if (
+        item.title == removeItemTitle &&
+        item.description == removeItemDescription
+      ) {
+        return this.items.indexOf(item);
+      }
+    }
+  }
 }
 
 export default Category;
