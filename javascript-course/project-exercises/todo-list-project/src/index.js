@@ -1,55 +1,81 @@
-import Category from "./js/projectClass";
-import TodoItem from "./js/todoClass";
+import Home from "./js/home";
 import validateInput from "./js/validateInput";
 import "./styles/css-reset.css";
 import "./styles/styles.css";
 
-// const hobbiesCategory = new Category("hobbies", [
-//   new TodoItem("Running", "We like to exercise", "2/3", "Low"),
-//   new TodoItem(
-//     "Coding",
-//     "We like to code and improve our current skill",
-//     "3/4",
-//     "High"
-//   ),
-// ]);
-
-const workCategoryJSON = [
+const data = [
   {
-    title: "work",
+    name: "work",
     items: [
       {
-        title: "item1",
-        description: "item1 description",
+        title: "update timesheet",
+        description: "fully update the timesheet for this week",
         dueDate: "1/1",
-        priority: "low",
+        priority: "high",
       },
       {
-        title: "item2",
-        description: "item2 description",
+        title: "finish report",
+        description:
+          "complete research and update report with up to date information",
         dueDate: "1/2",
-        priority: "low",
+        priority: "medium",
       },
       {
-        title: "item3",
-        description: "item3 description",
+        title: "meeting with manager",
+        description:
+          "have a catch up meeting with manager to see progress and feedback",
         dueDate: "1/3",
+        priority: "medium",
+      },
+    ],
+  },
+  {
+    name: "hobbies",
+    items: [
+      {
+        title: "Go for run",
+        description: "Complete weekly runs",
+        dueDate: "n/a",
+        priority: "medium",
+      },
+      {
+        title: "Enhance programming skills",
+        description: "Do at least 1 hour of programming each day",
+        dueDate: "n/a",
+        priority: "medium",
+      },
+    ],
+  },
+  {
+    name: "projects",
+    items: [
+      {
+        title: "project 1",
+        description: "project 1 description",
+        dueDate: "n/a",
+        priority: "high",
+      },
+      {
+        title: "project 2",
+        description: "project 2 description",
+        dueDate: "n/a",
+        priority: "medium",
+      },
+      {
+        title: "project 3",
+        description: "project 3 description",
+        dueDate: "n/a",
+        priority: "medium",
+      },
+      {
+        title: "project 4",
+        description: "project 4 description",
+        dueDate: "n/a",
         priority: "low",
       },
     ],
   },
 ];
-
-let workCategory;
-workCategoryJSON.forEach((category) => {
-  let items = [];
-  category.items.forEach((item) => {
-    items.push(
-      new TodoItem(item.title, item.description, item.dueDate, item.priority)
-    );
-  });
-  workCategory = new Category(category.title, items);
-});
 
 // // Testing Adding & Removing from a category
 // workCategory.displayProject();
@@ -68,3 +94,5 @@ document.querySelector("#add").addEventListener("click", () => {
     console.log("invalid input");
   }
 });
+
+Home(data);
