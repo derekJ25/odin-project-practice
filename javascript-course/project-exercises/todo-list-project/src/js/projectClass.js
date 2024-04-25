@@ -4,7 +4,7 @@ class Category {
     this.items = items;
   }
 
-  displayCategory() {
+  displayProject() {
     console.log(`Name: ${this.name}`);
     this.items.forEach((item) => {
       item.displayTodoItem();

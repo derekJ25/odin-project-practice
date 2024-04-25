@@ -1,5 +1,6 @@
-import Category from "./js/category-class";
-import TodoItem from "./js/todo-class";
+import Category from "./js/projectClass";
+import TodoItem from "./js/todoClass";
+import validateInput from "./js/validateInput";
 import "./styles/css-reset.css";
 import "./styles/styles.css";
 
@@ -50,32 +51,20 @@ workCategoryJSON.forEach((category) => {
   workCategory = new Category(category.title, items);
 });
 
-workCategory.displayCategory();
+// // Testing Adding & Removing from a category
+// workCategory.displayProject();
+// workCategory.addItem(new TodoItem("item2", "some random desc", "2/4", "low"));
+// console.log("-----------------");
+// workCategory.displayProject();
+// workCategory.removeItem("item2", "some random desc");
+// console.log("-----------------");
+// workCategory.displayProject();
 
-workCategory.addItem(new TodoItem("item2", "some random desc", "2/4", "low"));
-
-console.log("-----------------");
-workCategory.displayCategory();
-
-workCategory.removeItem("item2", "some random desc");
-
-console.log("-----------------");
-workCategory.displayCategory();
-
-// document.querySelector("#add").addEventListener("click", () => {
-//   const categoryName = prompt("Category name:");
-//   if (validateInput(categoryName)) {
-//     console.log(categoryName);
-//   } else {
-//     console.log("invalid input");
-//   }
-// });
-
-// const validateInput = (input) => {
-//   if (input == null || input.trim() == "") {
-//     return false;
-//   }
-//   return true;
-// };
-
-// const createCategory = (title) => {};
+document.querySelector("#add").addEventListener("click", () => {
+  const projectName = prompt("Project name:");
+  if (validateInput(projectName)) {
+    console.log(projectName);
+  } else {
+    console.log("invalid input");
+  }
+});
