@@ -6,7 +6,9 @@ const Home = (data) => {
     listName.innerHTML = project.name;
     project.items.forEach((item) => {
       const listItem = document.createElement("li");
-      listItem.innerHTML = item.title;
+      const itemButton = document.createElement("button");
+      itemButton.innerHTML = item.title;
+      listItem.appendChild(itemButton);
       list.appendChild(listItem);
     });
     projectContainer.append(listName, list);
