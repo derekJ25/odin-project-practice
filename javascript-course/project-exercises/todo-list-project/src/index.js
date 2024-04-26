@@ -86,7 +86,7 @@ const data = [
 // console.log("-----------------");
 // workCategory.displayProject();
 
-document.querySelector("#add").addEventListener("click", () => {
+document.querySelector(".add").addEventListener("click", () => {
   const projectName = prompt("Project name:");
   if (validateInput(projectName)) {
     console.log(projectName);
