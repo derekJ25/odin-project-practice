@@ -1,5 +1,4 @@
 import Home from "./js/home";
-import validateInput from "./js/validateInput";
 import "./styles/css-reset.css";
 import "./styles/styles.css";
 
@@ -76,23 +75,5 @@ const data = [
     ],
   },
 ];
-
-// // Testing Adding & Removing from a category
-// workCategory.displayProject();
-// workCategory.addItem(new TodoItem("item2", "some random desc", "2/4", "low"));
-// console.log("-----------------");
-// workCategory.displayProject();
-// workCategory.removeItem("item2", "some random desc");
-// console.log("-----------------");
-// workCategory.displayProject();
-
-document.querySelector(".add").addEventListener("click", () => {
-  const projectName = prompt("Project name:");
-  if (validateInput(projectName)) {
-    console.log(projectName);
-  } else {
-    console.log("invalid input");
-  }
-});
 
 Home(data);
