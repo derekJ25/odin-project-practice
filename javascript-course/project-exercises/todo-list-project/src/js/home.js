@@ -1,9 +1,9 @@
-import homeContent from "./homeContent";
-import homeSideBar from "./homeSideBar";
+import Content from "./content";
+import Sidebar from "./sidebar";
 
 const Home = (data) => {
-  homeSideBar(data);
-  homeContent();
+  Sidebar(data);
+  Content();
 };
 
 export default Home;

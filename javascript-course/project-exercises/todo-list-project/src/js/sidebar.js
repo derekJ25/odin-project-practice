@@ -1,4 +1,4 @@
-const homeSideBar = (data) => {
+const Sidebar = (data) => {
   const projectContainer = document.querySelector(".projects");
   data.forEach((project) => {
     const list = document.createElement("ul");
@@ -15,4 +15,4 @@ const homeSideBar = (data) => {
   });
 };
 
-export default homeSideBar;
+export default Sidebar;
