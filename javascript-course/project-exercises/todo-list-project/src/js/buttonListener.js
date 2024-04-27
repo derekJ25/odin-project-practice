@@ -8,11 +8,9 @@ const addButtonListener = (data) => {
         // TODO: Add action here
         console.log("add something right");
       } else {
-        console.log("do something else");
         const currentActive = document.querySelector(".active");
         currentActive.classList.remove("active");
         navButton.classList.add("active");
-        // maybe fix this
         Content(data);
       }
     });
