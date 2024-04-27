@@ -1,3 +1,5 @@
+import addButtonListener from "./buttonListener";
+
 const Sidebar = (data) => {
   const projectContainer = document.querySelector(".projects");
   data.forEach((project) => {
@@ -13,6 +15,8 @@ const Sidebar = (data) => {
     });
     projectContainer.append(listName, list);
   });
+
+  addButtonListener(data);
 };
 
 export default Sidebar;
