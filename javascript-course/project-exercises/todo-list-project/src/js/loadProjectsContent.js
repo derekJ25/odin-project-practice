@@ -14,6 +14,8 @@ const loadProjectsContent = (data) => {
       const projectPriority = document.createElement("span");
       projectPriority.innerHTML = item.priority;
 
+      // TODO: make a seperate module to create the cards?
+
       contentContainer.append(
         projectTitle,
         projectDescription,

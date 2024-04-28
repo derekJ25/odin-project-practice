@@ -17,6 +17,10 @@ body {
   display: flex;
 }
 
+#active {
+  background-color: green;
+}
+
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -54,13 +58,25 @@ body {
 .sidebar .add {
   margin-top: auto;
   text-align: center;
+  border-top: 0.5px solid grey;
 }
 
 .content {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 4rem;
   width: 80vw;
-  height: 100vh;
+  /* height: 100vh; */
+  text-transform: capitalize;
 }
 
-#active {
-  background-color: green;
+.content h1 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.content h2 {
+  font-size: 1.7rem;
+  margin-top: 1rem;
+  font-weight: 500;
 }
