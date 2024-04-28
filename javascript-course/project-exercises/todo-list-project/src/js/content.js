@@ -12,16 +12,14 @@ const Content = (data) => {
   contentContainer.appendChild(contentTitle);
 
   if (currentActive.innerHTML.toLowerCase() == "home") {
-    loadHomeContent();
+    loadHomeContent(data);
   } else if (currentActive.innerHTML.toLowerCase() == "today") {
-    loadTodayContent();
+    loadTodayContent(data);
   } else if (currentActive.innerHTML.toLowerCase() == "projects") {
-    loadProjectsContent();
+    loadProjectsContent(data);
   } else {
+    // load the other things data
   }
-
-  // TODO: find the active button and make it load into the content depending on value
-  // need to seperate logic to pass the data and return data?
 };
 
 export default Content;
