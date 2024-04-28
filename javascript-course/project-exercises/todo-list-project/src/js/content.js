@@ -7,7 +7,7 @@ const Content = (data) => {
   contentContainer.innerHTML = "";
 
   const contentTitle = document.createElement("h1");
-  const currentActive = document.querySelector(".active");
+  const currentActive = document.getElementById("active");
   contentTitle.innerHTML = currentActive.innerHTML;
   contentContainer.appendChild(contentTitle);
 
