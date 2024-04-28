@@ -22,16 +22,34 @@ body {
   flex-direction: column;
   width: 20vw;
   height: 100vh;
+  text-transform: capitalize;
+}
+
+#main-actions {
+  font-size: 1.2rem;
+}
+
+.sidebar h1 {
+  font-size: 1.2rem;
+  margin: 0.2rem;
 }
 
 .sidebar button {
   border: none;
   width: 100%;
   text-align: left;
+  padding: 0.2rem;
+  text-transform: capitalize;
+}
+
+.sidebar .add {
+  margin-top: auto;
+  text-align: center;
 }
 
 .content {
   width: 80vw;
+  height: 100vh;
 }
 
 .active {
