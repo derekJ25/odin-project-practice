@@ -23,15 +23,19 @@ body {
   width: 20vw;
   height: 100vh;
   text-transform: capitalize;
+  background-color: lightblue;
 }
 
 .main-actions {
   font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .sidebar h1 {
+  font-weight: 600;
   font-size: 1.2rem;
   margin: 0.2rem;
+  margin-top: 0.5rem;
 }
 
 .sidebar button {
