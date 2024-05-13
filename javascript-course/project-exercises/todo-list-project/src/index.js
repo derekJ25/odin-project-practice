@@ -51,7 +51,7 @@ const data = [
       {
         title: "project 1",
         description: "project 1 description",
-        dueDate: "n/a",
+        dueDate: "29/12",
         priority: "high",
       },
       {

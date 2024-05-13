@@ -90,6 +90,16 @@ body {
   display: flex;
 }
 
+.datePriority {
+  display: flex;
+  margin-left: auto;
+  width: 20%;
+}
+
+.datePriority h3:first-of-type {
+  width: 30%;
+}
+
 /* 
 TODO: 
 > Fix the height of webpage

@@ -5,6 +5,7 @@ const projectCard = (item) => {
   projectCardDiv.classList.add("project-card-div");
   const projectTitle = document.createElement("h3");
   projectTitle.innerHTML = item.title;
+  const datePriorityDiv = document.createElement("div");
   const projectDueDate = document.createElement("h3");
   projectDueDate.innerHTML = item.dueDate;
   const projectPriority = document.createElement("h3");
@@ -12,7 +13,9 @@ const projectCard = (item) => {
   const projectDescription = document.createElement("span");
   projectDescription.innerHTML = item.description;
 
-  projectCardDiv.append(projectTitle, projectDueDate, projectPriority);
+  datePriorityDiv.classList.add("datePriority");
+  datePriorityDiv.append(projectDueDate, projectPriority);
+  projectCardDiv.append(projectTitle, datePriorityDiv);
   projectCardContainer.append(projectCardDiv, projectDescription);
   return projectCardContainer;
 };
