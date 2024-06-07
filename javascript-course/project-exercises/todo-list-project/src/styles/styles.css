@@ -34,7 +34,6 @@ body {
 
 .content {
   width: calc(100vw - var(--navbar-width));
-  /* height: 100%; */
 }
 
 .add-list-button {
