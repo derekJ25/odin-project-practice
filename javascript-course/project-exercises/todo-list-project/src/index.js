@@ -1,4 +1,6 @@
 import "./styles/css-reset.css";
 import "./styles/styles.css";
 
-console.log("hello");
+document.querySelector(".add-list-button").addEventListener("click", () => {
+  console.log("add list thing here");
+});
