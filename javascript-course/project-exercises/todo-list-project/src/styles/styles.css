@@ -36,6 +36,22 @@ body {
   width: calc(100vw - var(--navbar-width));
 }
 
+.add-list {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .add-list-button {
   width: 100%;
+}
+
+.list-form-row {
+  display: flex;
+}
+.list-form-row:last-of-type {
+  margin-left: auto;
 }
