@@ -43,15 +43,43 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  min-width: 400px;
+  border: 1px solid black;
+}
+
+.add-list h3 {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.5rem;
 }
 
 .add-list-button {
   width: 100%;
 }
 
-.list-form-row {
-  display: flex;
+.list-inputs {
+  padding: 0.5rem;
 }
-.list-form-row:last-of-type {
+
+.list-inputs label {
+  display: inline-block;
+  min-width: 6rem;
+}
+
+.list-input-text {
+  width: 70%;
+}
+
+.list-inputs .last-input {
+  min-width: 4rem;
+}
+
+.list-inputs select {
+  width: 4.85rem;
+}
+
+.list-inputs:last-of-type {
   margin-left: auto;
+  margin-right: 0.5rem;
 }

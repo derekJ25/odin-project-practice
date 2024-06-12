@@ -12,28 +12,41 @@
         <button class="add-list-button">Add List</button>
         <div class="add-list">
           <h3>Add List</h3>
-          <label for="title">Title</label>
-          <input type="text" name="title" id="title" placeholder="List title" />
-          <label for="description">Description</label>
-          <input
-            type="text"
-            name="description"
-            id="description"
-            placeholder="List Description"
-          />
-          <div class="list-form-row">
+          <div class="list-inputs">
+            <label for="title">Title</label>
+            <input
+              type="text"
+              name="title"
+              id="title"
+              placeholder="List title"
+              class="list-input-text"
+            />
+          </div>
+          <div class="list-inputs">
+            <label for="description">Description</label>
+            <input
+              type="text"
+              name="description"
+              id="description"
+              placeholder="List Description"
+              class="list-input-text"
+            />
+          </div>
+          <div class="list-inputs">
             <label for="dueDate">Due date</label>
             <input type="date" name="dueDate" id="dueDate" />
-            <label for="priority">Priority</label>
+            <label for="priority" class="last-input">Priority</label>
             <select name="priority" id="priority">
               <option value="low">Low</option>
               <option value="medium">Medium</option>
               <option value="high">High</option>
             </select>
           </div>
-          <div class="list-form-row">
-            <button class="save-button">Save</button>
-            <button class="cancel-button">Cancel</button>
+          <div class="list-inputs">
+            <div class="list-form-row">
+              <button class="save-button">Save</button>
+              <button class="cancel-button">Cancel</button>
+            </div>
           </div>
         </div>
       </div>
