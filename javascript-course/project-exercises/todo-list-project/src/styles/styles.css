@@ -45,6 +45,7 @@ body {
   transform: translate(-50%, -50%);
   min-width: 400px;
   border: 1px solid black;
+  border-radius: 0.5rem;
 }
 
 .add-list h3 {
@@ -69,6 +70,9 @@ body {
 
 .list-input-text {
   width: 70%;
+  border-radius: 0.4rem;
+  border: 1px solid black;
+  line-height: 1.5rem;
 }
 
 .list-inputs .last-input {
@@ -83,3 +87,13 @@ body {
   margin-left: auto;
   margin-right: 0.5rem;
 }
+
+/* 
+TODO:
+> Fix label & input height
+> Add styling to buttons
+> Restrict the date
+> Add styling to drop down menu
+> Add JS to the button for popup and close
+
+*/
