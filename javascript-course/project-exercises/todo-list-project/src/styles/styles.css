@@ -64,14 +64,20 @@ body {
   padding: 0.5rem;
 }
 
+.list-input-text,
+.list-inputs select,
+.save-button,
+.cancel-button {
+  border-radius: 0.4rem;
+}
+
 .list-inputs label {
   display: inline-block;
   min-width: 6rem;
 }
 
 .list-input-text {
-  width: 70%;
-  border-radius: 0.4rem;
+  width: 70.5%;
   border: 1px solid black;
   line-height: 1.5rem;
 }
@@ -81,12 +87,14 @@ body {
 }
 
 .list-inputs select {
+  border: 1px solid black;
+  padding: 0.3rem;
   width: 4.85rem;
 }
 
 .list-inputs:last-of-type {
   margin-left: auto;
-  margin-right: 0.5rem;
+  margin-right: 0.4rem;
 }
 
 .save-button,
@@ -105,7 +113,8 @@ body {
   background-color: rgb(90, 170, 255);
 }
 
-.cancel-button:hover {
+.cancel-button:hover,
+.list-inputs select:hover {
   background-color: rgb(240, 240, 240);
 }
 
