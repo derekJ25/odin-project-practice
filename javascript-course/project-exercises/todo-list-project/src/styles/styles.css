@@ -120,9 +120,9 @@ body {
 
 /* 
 TODO:
-> Fix label & input height
-> Add styling to buttons
 > Restrict the date
+  > value="call JS function to get todays date"
+  > only today & future dates
 > Add styling to drop down menu
 > Add JS to the button for popup and close
 
