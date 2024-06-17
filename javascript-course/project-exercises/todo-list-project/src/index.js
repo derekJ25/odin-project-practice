@@ -13,6 +13,9 @@ const getTodayDate = () => {
   return `${yyyy}-${mm}-${dd}`;
 };
 
-console.log(getTodayDate());
+const setMinDate = () => {
+  document.getElementById("dueDate").value = getTodayDate();
+  document.getElementById("dueDate").setAttribute("min", getTodayDate());
+};
 
-document.getElementById("dueDate").value = getTodayDate();
+setMinDate();
