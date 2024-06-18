@@ -3,18 +3,35 @@ import "./styles/styles.css";
 
 const onPageLoad = () => {
   document.querySelector(".add-list-button").addEventListener("click", () => {
-    console.log("add list thing here");
     document.querySelector(".add-list").classList.add("active");
   });
 
   document.querySelector(".save-button").addEventListener("click", () => {
-    console.log("add the list to the thing");
+    validateFormInput();
   });
 
   document.querySelector(".cancel-button").addEventListener("click", () => {
-    console.log("go back");
+    clearFormInput();
     document.querySelector(".add-list").classList.remove("active");
   });
+
+  const clearFormInput = () => {
+    document.getElementById("title").value = "";
+    document.getElementById("description").value = "";
+    document.getElementById("dueDate").value = getTodayDate();
+    document.getElementById("priority").selectedIndex = 0;
+  };
+
+  // const validateFormInput = () => {
+  //   if (document.getElementById("title").value.trim() == "") {
+  //     console.log("Title cannot be empty.");
+  //   }
+  //   if (document.getElementById("description").value.trim() == "") {
+  //     console.log("Description cannot be empty.");
+  //   }
+
+  //   console.log(document.getElementById("dueDate").value);
+  // };
 
   const getTodayDate = () => {
     const today = new Date();
