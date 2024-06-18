@@ -47,6 +47,14 @@ body {
   border: 1px solid black;
   border-radius: 0.5rem;
   background-color: rgb(205, 205, 205);
+  opacity: 0;
+}
+
+.add-list.active {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+  transition: top 0ms ease-in-out 0ms, opacity 200ms ease-in-out 0ms,
+    transform 200ms ease-in-out 0ms;
 }
 
 .add-list h3 {
@@ -120,10 +128,7 @@ body {
 
 /* 
 TODO:
-> Restrict the date
-  > value="call JS function to get todays date"
-  > only today & future dates
-> Add styling to drop down menu
+> Add styling to drop down menu ?????
 > Add JS to the button for popup and close
 
 */
