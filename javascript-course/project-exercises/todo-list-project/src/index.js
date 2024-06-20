@@ -22,16 +22,20 @@ const onPageLoad = () => {
     document.getElementById("priority").selectedIndex = 0;
   };
 
-  // const validateFormInput = () => {
-  //   if (document.getElementById("title").value.trim() == "") {
-  //     console.log("Title cannot be empty.");
-  //   }
-  //   if (document.getElementById("description").value.trim() == "") {
-  //     console.log("Description cannot be empty.");
-  //   }
+  const validateFormInput = () => {
+    if (document.getElementById("title").value.trim() == "") {
+      console.log("Title cannot be empty.");
+    }
+    if (document.getElementById("description").value.trim() == "") {
+      console.log("Description cannot be empty.");
+    }
 
-  //   console.log(document.getElementById("dueDate").value);
-  // };
+    if (isPastDate(document.getElementById("dueDate").value)) {
+      console.log(
+        `Please enter/select a valid date. ${getTodayDate()} or later.`
+      );
+    }
+  };
 
   const getTodayDate = () => {
     const today = new Date();
@@ -44,6 +48,13 @@ const onPageLoad = () => {
   const setMinDate = () => {
     document.getElementById("dueDate").value = getTodayDate();
     document.getElementById("dueDate").setAttribute("min", getTodayDate());
+  };
+
+  const isPastDate = (date) => {
+    if (date < getTodayDate()) {
+      return true;
+    }
+    return false;
   };
 
   setMinDate();
