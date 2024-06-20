@@ -126,6 +126,16 @@ body {
   background-color: rgb(240, 240, 240);
 }
 
+.invalid-input {
+  border: 2px solid red;
+}
+
+.error-message {
+  color: red;
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+}
+
 /* 
 TODO:
 > Add styling to drop down menu ?????

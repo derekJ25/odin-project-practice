@@ -20,21 +20,24 @@ const onPageLoad = () => {
     document.getElementById("description").value = "";
     document.getElementById("dueDate").value = getTodayDate();
     document.getElementById("priority").selectedIndex = 0;
+    document.getElementById("title").classList.remove("invalid-input");
+    document.getElementById("description").classList.remove("invalid-input");
+    document.getElementById("dueDate").classList.remove("invalid-input");
+    // add clear error messages
   };
 
   const validateFormInput = () => {
-    if (document.getElementById("title").value.trim() == "") {
-      console.log("Title cannot be empty.");
-    }
-    if (document.getElementById("description").value.trim() == "") {
-      console.log("Description cannot be empty.");
-    }
+    document.getElementById("title").value.trim() == ""
+      ? addErrorMessage("title")
+      : removeErrorMessage("title");
 
-    if (isPastDate(document.getElementById("dueDate").value)) {
-      console.log(
-        `Please enter/select a valid date. ${getTodayDate()} or later.`
-      );
-    }
+    document.getElementById("description").value.trim() == ""
+      ? addErrorMessage("description")
+      : removeErrorMessage("description");
+
+    isPastDate(document.getElementById("dueDate").value) == true
+      ? addErrorMessage("dueDate")
+      : removeErrorMessage("dueDate");
   };
 
   const getTodayDate = () => {
@@ -55,6 +58,34 @@ const onPageLoad = () => {
       return true;
     }
     return false;
+  };
+
+  const addErrorMessage = (target) => {
+    // check if errormessage already exists - same if cancel so clear
+    document.getElementById(target).classList.add("invalid-input");
+    const errorMessage = document.createElement("span");
+    errorMessage.classList.add("error-message");
+    if (target == "dueDate") {
+      errorMessage.innerHTML = `Please enter/select a valid date. ${getTodayDate()} or later.`;
+    } else {
+      errorMessage.innerHTML =
+        capitaliseFirstLetter(target) + " cannot be empty.";
+    }
+    if (
+      document.querySelector(`.${target}-error-message`).childElementCount == 0
+    ) {
+      document
+        .querySelector(`.${target}-error-message`)
+        .appendChild(errorMessage);
+    }
+  };
+
+  const removeErrorMessage = (target) => {
+    document.getElementById(target).classList.remove("invalid-input");
+  };
+
+  const capitaliseFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
   setMinDate();
