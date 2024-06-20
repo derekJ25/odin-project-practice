@@ -23,7 +23,29 @@ const onPageLoad = () => {
     document.getElementById("title").classList.remove("invalid-input");
     document.getElementById("description").classList.remove("invalid-input");
     document.getElementById("dueDate").classList.remove("invalid-input");
-    // add clear error messages
+    if (document.querySelector(`.title-error-message`).childElementCount > 0) {
+      document
+        .querySelector(`.title-error-message`)
+        .removeChild(document.querySelector(`.title-error-message`).firstChild);
+    }
+    if (
+      document.querySelector(`.description-error-message`).childElementCount > 0
+    ) {
+      document
+        .querySelector(`.description-error-message`)
+        .removeChild(
+          document.querySelector(`.description-error-message`).firstChild
+        );
+    }
+    if (
+      document.querySelector(`.dueDate-error-message`).childElementCount > 0
+    ) {
+      document
+        .querySelector(`.dueDate-error-message`)
+        .removeChild(
+          document.querySelector(`.dueDate-error-message`).firstChild
+        );
+    }
   };
 
   const validateFormInput = () => {
@@ -61,7 +83,6 @@ const onPageLoad = () => {
   };
 
   const addErrorMessage = (target) => {
-    // check if errormessage already exists - same if cancel so clear
     document.getElementById(target).classList.add("invalid-input");
     const errorMessage = document.createElement("span");
     errorMessage.classList.add("error-message");
