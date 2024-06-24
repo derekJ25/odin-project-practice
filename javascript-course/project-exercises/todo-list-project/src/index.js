@@ -103,6 +103,15 @@ const onPageLoad = () => {
 
   const removeErrorMessage = (target) => {
     document.getElementById(target).classList.remove("invalid-input");
+    if (
+      document.querySelector(`.${target}-error-message`).childElementCount > 0
+    ) {
+      document
+        .querySelector(`.${target}-error-message`)
+        .removeChild(
+          document.querySelector(`.${target}-error-message`).firstChild
+        );
+    }
   };
 
   const capitaliseFirstLetter = (string) => {
