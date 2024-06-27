@@ -15,6 +15,20 @@ const onPageLoad = () => {
     document.querySelector(".add-list").classList.remove("active");
   });
 
+  const displayLocalStorageList = () => {
+    if (localStorage.length > 0) {
+      for (let i = 0; i < localStorage.length; i++) {
+        const listButton = document.createElement("button");
+        listButton.innerHTML = JSON.parse(
+          localStorage.getItem(`listItem${i}`)
+        )[0];
+        listButton.classList.add("nav-list-button");
+        const listNavDiv = document.querySelector(".list-section");
+        listNavDiv.appendChild(listButton);
+      }
+    }
+  };
+
   const clearFormInput = () => {
     document.getElementById("title").value = "";
     document.getElementById("description").value = "";
@@ -60,6 +74,37 @@ const onPageLoad = () => {
     isPastDate(document.getElementById("dueDate").value) == true
       ? addErrorMessage("dueDate")
       : removeErrorMessage("dueDate");
+    if (
+      document.querySelector(`.title-error-message`).childElementCount == 0 &&
+      document.querySelector(`.description-error-message`).childElementCount ==
+        0 &&
+      document.querySelector(`.dueDate-error-message`).childElementCount == 0
+    ) {
+      addToList(
+        document.getElementById("title").value,
+        document.getElementById("description").value,
+        document.getElementById("dueDate").value,
+        document.getElementById("priority").value
+      );
+    }
+  };
+
+  const addToList = (title, description, dueDate, priority) => {
+    const listItem = [
+      `${title}`,
+      `${description}`,
+      `${dueDate}`,
+      `${priority}`,
+    ];
+    const listItemString = JSON.stringify(listItem);
+    addToLocalStorage(listItemString);
+    const listButton = document.createElement("button");
+    listButton.innerHTML = title;
+    listButton.classList.add("nav-list-button");
+    const listNavDiv = document.querySelector(".list-section");
+    listNavDiv.appendChild(listButton);
+
+    // clear inputs + hide the form thing
   };
 
   const getTodayDate = () => {
@@ -114,11 +159,28 @@ const onPageLoad = () => {
     }
   };
 
+  // add func to check if x has child elements
+
   const capitaliseFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
 
+  // TODO
+  const addToLocalStorage = (listItem) => {
+    localStorage.setItem(`listItem${localStorage.length}`, listItem);
+  };
+
+  const removeFromLocalStorage = (listItem) => {
+    // localStorage.removeItem()
+  };
+
+  const clearLocalStorage = () => {
+    localStorage.clear();
+  };
+
   setMinDate();
+  displayLocalStorageList();
+  // clearLocalStorage();
 };
 
 onPageLoad();

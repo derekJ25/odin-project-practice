@@ -68,6 +68,10 @@ body {
   width: 100%;
 }
 
+.nav-list-button {
+  width: 100%;
+}
+
 .list-inputs {
   padding: 0.5rem;
 }
@@ -139,9 +143,11 @@ body {
 /* 
 TODO:
 > Add styling to drop down menu ?????
+> Seperate JS logic into each individual file
+> Use localStorage to hold list stuff
 > User list input
   > Form verification - date & dropdown
-  > Clean logic for cancel button -> make it neater and cleaner
+  > Clean logic for cancel button -> make it neater and cleaner [clearFormInput & add/remove errormessage]
   > Add to list
   > Display list on sidebar
 > Sidebar list
