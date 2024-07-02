@@ -23,6 +23,10 @@ const onPageLoad = () => {
           localStorage.getItem(`listItem${i}`)
         )[0];
         listButton.classList.add("nav-list-button");
+        if (i == 0) {
+          listButton.classList.add("active");
+        }
+        listButton.id = `listItem${i}`;
         const listNavDiv = document.querySelector(".list-section");
         listNavDiv.appendChild(listButton);
       }
@@ -99,13 +103,30 @@ const onPageLoad = () => {
     const listItemString = JSON.stringify(listItem);
     addToLocalStorage(listItemString);
     const listButton = document.createElement("button");
+    listButton.id = `listItem${localStorage.length - 1}`;
     listButton.innerHTML = title;
     listButton.classList.add("nav-list-button");
+    if (localStorage.length == 1) {
+      listButton.classList.add("active");
+    }
     const listNavDiv = document.querySelector(".list-section");
     listNavDiv.appendChild(listButton);
 
     clearFormInput();
     document.querySelector(".add-list").classList.remove("active");
+
+    displayActiveList();
+  };
+
+  // TODO
+  // display stuff if active on navbar to content
+  // hover and active styling to the list nav
+
+  const displayActiveList = () => {
+    let activeList = document.querySelector(".nav-list-button.active");
+    const contentTitle = document.createElement("h1");
+    contentTitle.innerHTML = `${localStorage.getItem(activeList.id)}`;
+    document.querySelector(".content").appendChild(contentTitle);
   };
 
   const getTodayDate = () => {

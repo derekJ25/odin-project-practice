@@ -70,9 +70,13 @@ body {
 
 .nav-list-button {
   width: 100%;
-  /* color: black; */
-  /* background-color: lightgray; */
-  /* border: 1px solid black; */
+  color: black;
+  /* background-color: lime;
+  border: 1px solid black; */
+}
+
+.nav-list-button.active {
+  background-color: pink;
 }
 
 .list-inputs {
