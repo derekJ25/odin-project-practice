@@ -70,6 +70,9 @@ body {
 
 .nav-list-button {
   width: 100%;
+  /* color: black; */
+  /* background-color: lightgray; */
+  /* border: 1px solid black; */
 }
 
 .list-inputs {

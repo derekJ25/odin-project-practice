@@ -104,7 +104,8 @@ const onPageLoad = () => {
     const listNavDiv = document.querySelector(".list-section");
     listNavDiv.appendChild(listButton);
 
-    // clear inputs + hide the form thing
+    clearFormInput();
+    document.querySelector(".add-list").classList.remove("active");
   };
 
   const getTodayDate = () => {
