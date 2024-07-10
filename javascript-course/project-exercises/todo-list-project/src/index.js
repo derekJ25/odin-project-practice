@@ -125,10 +125,18 @@ const onPageLoad = () => {
   // hover and active styling to the list nav
 
   const displayActiveList = () => {
+    clearActiveList();
     let activeList = document.querySelector(".nav-list-button.active");
     const contentTitle = document.createElement("h1");
     contentTitle.innerHTML = `${localStorage.getItem(activeList.id)}`;
     document.querySelector(".content").appendChild(contentTitle);
+  };
+
+  const clearActiveList = () => {
+    const contentContainer = document.querySelector(".content");
+    while (contentContainer.childElementCount > 0) {
+      contentContainer.removeChild(contentContainer.lastChild);
+    }
   };
 
   const getTodayDate = () => {
