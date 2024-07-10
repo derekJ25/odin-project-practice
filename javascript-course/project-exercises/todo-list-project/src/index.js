@@ -190,6 +190,7 @@ const onPageLoad = () => {
           .getElementById(document.querySelector(".nav-list-button.active").id)
           .classList.remove("active");
         document.getElementById(buttonID).classList.add("active");
+        displayActiveList();
       }
     });
   };
