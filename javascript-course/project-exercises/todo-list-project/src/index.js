@@ -28,6 +28,7 @@ const onPageLoad = () => {
         }
         listButton.id = `listItem${i}`;
         const listNavDiv = document.querySelector(".list-section");
+        changeListActiveListener(listButton, `listItem${i}`);
         listNavDiv.appendChild(listButton);
       }
     }
@@ -110,6 +111,7 @@ const onPageLoad = () => {
       listButton.classList.add("active");
     }
     const listNavDiv = document.querySelector(".list-section");
+    changeListActiveListener(listButton, listButton.id);
     listNavDiv.appendChild(listButton);
 
     clearFormInput();
@@ -179,6 +181,17 @@ const onPageLoad = () => {
           document.querySelector(`.${target}-error-message`).firstChild
         );
     }
+  };
+
+  const changeListActiveListener = (button, buttonID) => {
+    button.addEventListener("click", () => {
+      if (document.querySelector(".nav-list-button.active").id != buttonID) {
+        document
+          .getElementById(document.querySelector(".nav-list-button.active").id)
+          .classList.remove("active");
+        document.getElementById(buttonID).classList.add("active");
+      }
+    });
   };
 
   // add func to check if x has child elements
