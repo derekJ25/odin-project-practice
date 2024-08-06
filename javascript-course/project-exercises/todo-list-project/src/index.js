@@ -31,6 +31,7 @@ const onPageLoad = () => {
         changeListActiveListener(listButton, `listItem${i}`);
         listNavDiv.appendChild(listButton);
       }
+      displayActiveList();
     }
   };
 
@@ -127,9 +128,49 @@ const onPageLoad = () => {
   const displayActiveList = () => {
     clearActiveList();
     let activeList = document.querySelector(".nav-list-button.active");
-    const contentTitle = document.createElement("h1");
-    contentTitle.innerHTML = `${localStorage.getItem(activeList.id)}`;
-    document.querySelector(".content").appendChild(contentTitle);
+    const item = JSON.parse(localStorage.getItem(activeList.id));
+    const contentTopDiv = document.createElement("div");
+    contentTopDiv.classList.add("content-top-div");
+
+    const title = document.createElement("h1");
+    title.innerHTML = item[0];
+    const contentDateAndPriorityDiv = document.createElement("div");
+    contentDateAndPriorityDiv.classList.add("content-date-priority-div");
+    const dateDiv = document.createElement("div");
+    const priorityDiv = document.createElement("div");
+    const date = document.createElement("p");
+    const priority = document.createElement("p");
+
+    date.innerHTML = item[2];
+    priority.innerHTML = item[3];
+    dateDiv.appendChild(date);
+    priorityDiv.appendChild(priority);
+    contentDateAndPriorityDiv.append(dateDiv, priorityDiv);
+    contentTopDiv.append(title, contentDateAndPriorityDiv);
+
+    const contentBottomDiv = document.createElement("div");
+    contentBottomDiv.classList.add("content-bottom-div");
+    const description = document.createElement("p");
+    description.innerHTML = item[1];
+    contentBottomDiv.appendChild(description);
+
+    document.querySelector(".content").append(contentTopDiv, contentBottomDiv);
+
+    // contentTitle.innerHTML = item[0];
+    // const contentDescription = document.createElement("p");
+    // contentDescription.innerHTML = item[1];
+    // const contentDueDate = document.createElement("p");
+    // contentDueDate.innerHTML = item[2];
+    // const contentPriority = document.createElement("p");
+    // contentPriority.innerHTML = item[3];
+    // document
+    //   .querySelector(".content")
+    //   .append(
+    //     contentTitle,
+    //     contentDescription,
+    //     contentDueDate,
+    //     contentPriority
+    //   );
   };
 
   const clearActiveList = () => {
